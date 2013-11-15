@@ -1,6 +1,7 @@
 #ifndef PRMTVPROCESS_H_
 #define PRMTVPROCESS_H_
 
+#include <pcl/kdtree/kdtree_flann.h>
 #include <pcl/ModelCoefficients.h>
 #include <pcl/point_types.h>
 #include <pcl/sample_consensus/method_types.h>
@@ -20,5 +21,5 @@ using namespace pcl;
 using namespace std;
 
 void getCentDist(vector<PointCloud<PointXYZRGBA> >);
-void getMinDist(PointCloud<PointXYZRGBA>,PointCloud<PointXYZRGBA>);
+void getMinDist(PointCloud<PointXYZRGBA>::Ptr ,PointCloud<PointXYZRGBA>::Ptr);
 #endif 

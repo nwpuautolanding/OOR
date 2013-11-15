@@ -15,7 +15,7 @@ int main(int argc, char** argv){
   inputVector.push_back(*cloudptr1);
   inputVector.push_back(*cloudptr2);
 
-  getCentDist(inputVector);
-
+  //  getCentDist(inputVector);
+  getMinDist(cloudptr1,cloudptr2);
   return -1;
 }

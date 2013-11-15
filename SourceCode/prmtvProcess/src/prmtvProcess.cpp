@@ -3,6 +3,8 @@
 using namespace pcl;
 using namespace std;
 
+/*Function finds distances between centroids of the input clusters*/
+
 void getCentDist(vector<PointCloud<PointXYZRGBA> > clusterClouds){
 
   PointCloud<PointXYZRGBA> tempCloud;
@@ -22,13 +24,41 @@ void getCentDist(vector<PointCloud<PointXYZRGBA> > clusterClouds){
       compute3DCentroid(*it2, centroidVec2);
       centroid2.getVector4fMap() = centroidVec2;
       float dist = euclideanDistance(centroid1, centroid2);
+      
+      /* 
+
+	 STILL TO BE DECIDED WHAT WE WANT TO RETURN
+
+      */
       cout << "Distance equals:" << dist << endl;
     }
   }
 }
 
-void getMinDist(PointCloud<PointXYZRGBA> cloud1,PointCloud<PointXYZRGBA> cloud2){
+/*Function finds minimal distance between two point clouds*/
 
+void getMinDist(PointCloud<PointXYZRGBA>::Ptr cloud1,PointCloud<PointXYZRGBA>::Ptr cloud2){
+
+  KdTreeFLANN<pcl::PointXYZRGBA> cloud1KdTree;
+  cloud1KdTree.setInputCloud(cloud1);
+
+  vector<int> pointIdxRadiusSearch;
+  vector<float> pointRadiusSquaredDistance;
+  vector<float> outputDistances;
+
+  int K = 1;
+  bool foundDist = false;
+
+  for(PointCloud<PointXYZRGBA>::iterator it = cloud2->points.begin(); it != cloud2->points.end(); ++it){
+    if (cloud1KdTree.nearestKSearch(*it,K , pointIdxRadiusSearch, pointRadiusSquaredDistance) > 0){
+      outputDistances.push_back(*min_element(pointRadiusSquaredDistance.begin(),pointRadiusSquaredDistance.end()));
+    }
+  }
+
+  if(!outputDistances.empty()){
+    cout<<"Minimum distance is:"<<*min_element(outputDistances.begin(),outputDistances.end())<<endl;
+    cout<<"Maximum distance is:"<<*max_element(outputDistances.begin(),outputDistances.end())<<endl;
+  }
 }
 
 
