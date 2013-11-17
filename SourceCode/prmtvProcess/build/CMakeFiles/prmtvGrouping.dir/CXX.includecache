@@ -33,6 +33,8 @@ pcl/io/pcd_io.h
 -
 pcl/visualization/cloud_viewer.h
 -
+pcl/visualization/pcl_visualizer.h
+-
 pcl/console/parse.h
 -
 pcl/common/distances.h
