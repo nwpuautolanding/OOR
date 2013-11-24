@@ -9,10 +9,14 @@
 #include <pcl/sample_consensus/method_types.h>
 #include <pcl/sample_consensus/model_types.h>
 #include <pcl/segmentation/sac_segmentation.h>
+#include <pcl/segmentation/extract_clusters.h>
+
 #include <pcl/filters/voxel_grid.h>
 #include <pcl/filters/extract_indices.h>
 #include <iostream>
 #include <pcl/io/pcd_io.h>
+
+#include <pcl/search/kdtree.h>
 
 #include <pcl/visualization/cloud_viewer.h>
 #include <pcl/visualization/pcl_visualizer.h>
@@ -27,6 +31,7 @@ using namespace std;
 
 void getCentDist(vector<PointCloud<PointXYZRGBA> >);
 float getMinDist(PointCloud<PointXYZRGBA>::Ptr, PointCloud<PointXYZRGBA>::Ptr);
-void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr >);
+void getObjClusters(PointCloud<PointXYZRGBA>::Ptr sceneCloud, vector<PointCloud<PointXYZRGBA>::Ptr > &outVector);
+void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > &groupClouds);
 
 #endif 

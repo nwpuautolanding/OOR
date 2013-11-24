@@ -44,10 +44,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bheliom/Downloads/pcView
+CMAKE_SOURCE_DIR = /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bheliom/Downloads/pcView/build
+CMAKE_BINARY_DIR = /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/kinectPCLviewer.dir
@@ -56,7 +56,7 @@ CMAKE_BINARY_DIR = /home/bheliom/Downloads/pcView/build
 CMakeFiles/kinectPCLviewer.dir/all:
 	$(MAKE) -f CMakeFiles/kinectPCLviewer.dir/build.make CMakeFiles/kinectPCLviewer.dir/depend
 	$(MAKE) -f CMakeFiles/kinectPCLviewer.dir/build.make CMakeFiles/kinectPCLviewer.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/bheliom/Downloads/pcView/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build/CMakeFiles  1
 	@echo "Built target kinectPCLviewer"
 .PHONY : CMakeFiles/kinectPCLviewer.dir/all
 
@@ -66,9 +66,9 @@ all: CMakeFiles/kinectPCLviewer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/kinectPCLviewer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bheliom/Downloads/pcView/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/kinectPCLviewer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bheliom/Downloads/pcView/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build/CMakeFiles 0
 .PHONY : CMakeFiles/kinectPCLviewer.dir/rule
 
 # Convenience name for target.

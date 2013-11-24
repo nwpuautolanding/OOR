@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bheliom/Downloads/pcView
+CMAKE_SOURCE_DIR = /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bheliom/Downloads/pcView/build
+CMAKE_BINARY_DIR = /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/kinectPCLviewer.dir/depend.make
@@ -48,17 +48,17 @@ include CMakeFiles/kinectPCLviewer.dir/flags.make
 
 CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o: CMakeFiles/kinectPCLviewer.dir/flags.make
 CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o: ../src/pcloudview.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/bheliom/Downloads/pcView/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o -c /home/bheliom/Downloads/pcView/src/pcloudview.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o -c /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/src/pcloudview.cpp
 
 CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/bheliom/Downloads/pcView/src/pcloudview.cpp > CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/src/pcloudview.cpp > CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.i
 
 CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/bheliom/Downloads/pcView/src/pcloudview.cpp -o CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/src/pcloudview.cpp -o CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.s
 
 CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.requires:
 .PHONY : CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.requires
@@ -169,6 +169,6 @@ CMakeFiles/kinectPCLviewer.dir/clean:
 .PHONY : CMakeFiles/kinectPCLviewer.dir/clean
 
 CMakeFiles/kinectPCLviewer.dir/depend:
-	cd /home/bheliom/Downloads/pcView/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bheliom/Downloads/pcView /home/bheliom/Downloads/pcView /home/bheliom/Downloads/pcView/build /home/bheliom/Downloads/pcView/build /home/bheliom/Downloads/pcView/build/CMakeFiles/kinectPCLviewer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build /home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build/CMakeFiles/kinectPCLviewer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/kinectPCLviewer.dir/depend
 

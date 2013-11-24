@@ -1,5 +1,5 @@
 #include "prmtvProcess.hpp"
-
+#include <pcl/kdtree/kdtree_flann.h>
 using namespace pcl;
 using namespace std;
 
@@ -55,7 +55,50 @@ float getMinDist(PointCloud<PointXYZRGBA>::Ptr cloud1,PointCloud<PointXYZRGBA>::
   return *min_element(outputDistances.begin(),outputDistances.end());
 }
 
-void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > groupClouds){
+void getObjClusters(PointCloud<PointXYZRGBA>::Ptr sceneCloud,vector<PointCloud<PointXYZRGBA>::Ptr > &outVector){
+
+  vector<PointCloud<PointXYZRGBA> > outClusters;
+  // Creating the KdTree object for the search method of the extraction
+  pcl::search::KdTree<PointXYZRGBA>::Ptr tree(new pcl::search::KdTree<PointXYZRGBA>);
+  tree->setInputCloud (sceneCloud);
+
+  vector<PointIndices> cluster_indices;
+  EuclideanClusterExtraction<PointXYZRGBA> ec;
+
+  ec.setClusterTolerance (0.02); // 2cm
+  ec.setMinClusterSize (100);
+  ec.setMaxClusterSize (25000);
+  ec.setSearchMethod (tree);
+  ec.setInputCloud (sceneCloud);
+  ec.extract(cluster_indices);
+
+  int j = 0;
+  pcl::PCDWriter writer;
+  
+  for (vector<PointIndices>::const_iterator it = cluster_indices.begin (); it != cluster_indices.end (); ++it){
+      PointCloud<PointXYZRGBA>::Ptr cloud_cluster (new PointCloud<PointXYZRGBA>);
+
+      for (vector<int>::const_iterator pit = it->indices.begin (); pit != it->indices.end (); pit++)
+	cloud_cluster->points.push_back (sceneCloud->points[*pit]); //*
+
+      cloud_cluster->width = cloud_cluster->points.size ();
+      cloud_cluster->height = 1;
+      cloud_cluster->is_dense = true;
+
+      std::cout << "PointCloud representing the Cluster: " << cloud_cluster->points.size () << " data points." << std::endl;
+      std::stringstream ss;
+      ss << "cloud_cluster_" << j << ".pcd";
+      writer.write<pcl::PointXYZRGBA> (ss.str (), *cloud_cluster, false); 
+      outClusters.push_back(*cloud_cluster);
+      outVector.push_back(cloud_cluster);
+      j++;
+    }
+  
+}
+
+/* Function to visualize lines between centroids of group of clouds*/
+
+void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > &groupClouds){
   
   Eigen::Vector4f centroidVec1(0,0,0,0);
   Eigen::Vector4f centroidVec2(0,0,0,0);
@@ -72,7 +115,7 @@ void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > groupClouds){
   double max_channel = std::max (r, std::max (g, b));
 
   int i = 0;
-  for(vector<PointCloud<PointXYZRGBA>::Ptr >::const_iterator it = groupClouds.begin(); it != groupClouds.end(); ++it){
+  for(vector<PointCloud<PointXYZRGBA>::Ptr >::const_iterator it = groupClouds.begin(); it != groupClouds.end()-1; ++it){
 
     ss << i;
     vis.addPointCloud<PointXYZRGBA>(*it, ss.str());
@@ -96,7 +139,9 @@ void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > groupClouds){
     b /= max_channel;
     i++;
   }
-
-  vis.resetCamera ();
+  //  ss << i;
+  //  vis.addPointCloud<PointXYZRGBA>(groupClouds.end(), ss.str());
   vis.spin ();
+  //  vis.resetCamera ();
+
 }

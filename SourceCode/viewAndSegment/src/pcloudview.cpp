@@ -70,8 +70,8 @@ void getPlanes(PointCloud<PointXYZ>::Ptr cloud_filtered){
     extract.setNegative (true);
     extract.filter (*cloud_f);
     cloud_filtered.swap (cloud_f);
-    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color(cloud_p, 0, 255, 0);
-    viewer->showCloud(cloud_p, single_color);
+    //    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color(cloud_p, 0, 255, 0);
+    //    viewer->showCloud(cloud_p, single_color);
     i++;
   }
 }
@@ -98,10 +98,7 @@ void grabberCallback(const PointCloud<PointXYZ>::ConstPtr& cloud)
 	{
 		PointCloud<PointXYZ>::Ptr chkThis(new PointCloud<pcl::PointXYZ>());
 		copyPointCloud<PointXYZ, PointXYZ>(*cloud, *chkThis);
-
-
 		getPlanes(chkThis);
-
         saveCloud = false;
     }
 }

@@ -1,1 +1,1 @@
-/home/bheliom/Downloads/pcView/build/CMakeFiles/kinectPCLviewer.dir
+/home/bheliom/RoboticsProject/OOR/SourceCode/viewAndSegment/build/CMakeFiles/kinectPCLviewer.dir
