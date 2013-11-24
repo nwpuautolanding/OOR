@@ -1,1 +1,0 @@
-/home/fox/Documents/OOR/SourceCode/kin_viewer/build/CMakeFiles/kinectPCLviewer.dir
