@@ -43,11 +43,17 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# Escaping for special characters.
+EQUALS = =
+
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/abr/testpcl/kinec
+CMAKE_SOURCE_DIR = /home/fox/Documents/OOR/SourceCode/kin_viewer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/abr/testpcl/kinec/build
+CMAKE_BINARY_DIR = /home/fox/Documents/OOR/SourceCode/kin_viewer/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/kinectPCLviewer.dir
@@ -56,7 +62,7 @@ CMAKE_BINARY_DIR = /home/abr/testpcl/kinec/build
 CMakeFiles/kinectPCLviewer.dir/all:
 	$(MAKE) -f CMakeFiles/kinectPCLviewer.dir/build.make CMakeFiles/kinectPCLviewer.dir/depend
 	$(MAKE) -f CMakeFiles/kinectPCLviewer.dir/build.make CMakeFiles/kinectPCLviewer.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/abr/testpcl/kinec/build/CMakeFiles  1
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fox/Documents/OOR/SourceCode/kin_viewer/build/CMakeFiles  1
 	@echo "Built target kinectPCLviewer"
 .PHONY : CMakeFiles/kinectPCLviewer.dir/all
 
@@ -66,9 +72,9 @@ all: CMakeFiles/kinectPCLviewer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/kinectPCLviewer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abr/testpcl/kinec/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/Documents/OOR/SourceCode/kin_viewer/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/kinectPCLviewer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/abr/testpcl/kinec/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/fox/Documents/OOR/SourceCode/kin_viewer/build/CMakeFiles 0
 .PHONY : CMakeFiles/kinectPCLviewer.dir/rule
 
 # Convenience name for target.

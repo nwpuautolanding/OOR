@@ -1,1 +1,1 @@
-/home/abr/testpcl/kinec/build/CMakeFiles/kinectPCLviewer.dir
+/home/fox/Documents/OOR/SourceCode/kin_viewer/build/CMakeFiles/kinectPCLviewer.dir

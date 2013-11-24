@@ -31,11 +31,17 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# Escaping for special characters.
+EQUALS = =
+
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/abr/testpcl/kinec
+CMAKE_SOURCE_DIR = /home/fox/Documents/OOR/SourceCode/kin_viewer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/abr/testpcl/kinec/build
+CMAKE_BINARY_DIR = /home/fox/Documents/OOR/SourceCode/kin_viewer/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/kinectPCLviewer.dir/depend.make
@@ -46,113 +52,92 @@ include CMakeFiles/kinectPCLviewer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/kinectPCLviewer.dir/flags.make
 
-CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o: CMakeFiles/kinectPCLviewer.dir/flags.make
-CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o: ../src/main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/abr/testpcl/kinec/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o -c /home/abr/testpcl/kinec/src/main.cpp
+CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o: CMakeFiles/kinectPCLviewer.dir/flags.make
+CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o: ../src/pcloudview.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/fox/Documents/OOR/SourceCode/kin_viewer/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o -c /home/fox/Documents/OOR/SourceCode/kin_viewer/src/pcloudview.cpp
 
-CMakeFiles/kinectPCLviewer.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kinectPCLviewer.dir/src/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/abr/testpcl/kinec/src/main.cpp > CMakeFiles/kinectPCLviewer.dir/src/main.cpp.i
+CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/fox/Documents/OOR/SourceCode/kin_viewer/src/pcloudview.cpp > CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.i
 
-CMakeFiles/kinectPCLviewer.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kinectPCLviewer.dir/src/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/abr/testpcl/kinec/src/main.cpp -o CMakeFiles/kinectPCLviewer.dir/src/main.cpp.s
+CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/fox/Documents/OOR/SourceCode/kin_viewer/src/pcloudview.cpp -o CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.s
 
-CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o.requires:
-.PHONY : CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o.requires
+CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.requires:
+.PHONY : CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.requires
 
-CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o.provides: CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/kinectPCLviewer.dir/build.make CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o.provides.build
-.PHONY : CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o.provides
+CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.provides: CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.requires
+	$(MAKE) -f CMakeFiles/kinectPCLviewer.dir/build.make CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.provides.build
+.PHONY : CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.provides
 
-CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o.provides.build: CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o
+CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.provides.build: CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o
 
 # Object files for target kinectPCLviewer
 kinectPCLviewer_OBJECTS = \
-"CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o"
+"CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o"
 
 # External object files for target kinectPCLviewer
 kinectPCLviewer_EXTERNAL_OBJECTS =
 
-kinectPCLviewer: CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o
-kinectPCLviewer: /usr/lib/libboost_system-mt.so
-kinectPCLviewer: /usr/lib/libboost_filesystem-mt.so
-kinectPCLviewer: /usr/lib/libboost_thread-mt.so
-kinectPCLviewer: /usr/lib/libboost_date_time-mt.so
-kinectPCLviewer: /usr/lib/libboost_iostreams-mt.so
-kinectPCLviewer: /usr/lib/libboost_serialization-mt.so
-kinectPCLviewer: /usr/lib/libpcl_common.so
-kinectPCLviewer: /opt/ros/groovy/lib/libflann_cpp_s.a
-kinectPCLviewer: /usr/lib/libpcl_kdtree.so
-kinectPCLviewer: /usr/lib/libpcl_octree.so
-kinectPCLviewer: /usr/lib/libpcl_search.so
-kinectPCLviewer: /usr/lib/libOpenNI.so
-kinectPCLviewer: /usr/lib/libvtkCommon.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkRendering.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkHybrid.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkCharts.so.5.8.0
-kinectPCLviewer: /usr/lib/libpcl_io.so
-kinectPCLviewer: /usr/lib/libpcl_sample_consensus.so
-kinectPCLviewer: /usr/lib/libpcl_filters.so
-kinectPCLviewer: /usr/lib/libpcl_visualization.so
-kinectPCLviewer: /usr/lib/libpcl_outofcore.so
-kinectPCLviewer: /usr/lib/libpcl_features.so
-kinectPCLviewer: /usr/lib/libpcl_segmentation.so
-kinectPCLviewer: /usr/lib/libpcl_people.so
-kinectPCLviewer: /usr/lib/libpcl_registration.so
-kinectPCLviewer: /usr/lib/libpcl_recognition.so
-kinectPCLviewer: /usr/lib/libpcl_keypoints.so
-kinectPCLviewer: /usr/lib/libqhull.so
-kinectPCLviewer: /usr/lib/libpcl_surface.so
-kinectPCLviewer: /usr/lib/libpcl_tracking.so
-kinectPCLviewer: /usr/lib/libpcl_apps.so
-kinectPCLviewer: /usr/lib/libboost_system-mt.so
-kinectPCLviewer: /usr/lib/libboost_filesystem-mt.so
-kinectPCLviewer: /usr/lib/libboost_thread-mt.so
-kinectPCLviewer: /usr/lib/libboost_date_time-mt.so
-kinectPCLviewer: /usr/lib/libboost_iostreams-mt.so
-kinectPCLviewer: /usr/lib/libboost_serialization-mt.so
-kinectPCLviewer: /usr/lib/libqhull.so
-kinectPCLviewer: /usr/lib/libOpenNI.so
-kinectPCLviewer: /opt/ros/groovy/lib/libflann_cpp_s.a
-kinectPCLviewer: /usr/lib/libvtkCommon.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkRendering.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkHybrid.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkCharts.so.5.8.0
-kinectPCLviewer: /usr/lib/libpcl_common.so
-kinectPCLviewer: /usr/lib/libpcl_kdtree.so
-kinectPCLviewer: /usr/lib/libpcl_octree.so
-kinectPCLviewer: /usr/lib/libpcl_search.so
-kinectPCLviewer: /usr/lib/libpcl_io.so
-kinectPCLviewer: /usr/lib/libpcl_sample_consensus.so
-kinectPCLviewer: /usr/lib/libpcl_filters.so
-kinectPCLviewer: /usr/lib/libpcl_visualization.so
-kinectPCLviewer: /usr/lib/libpcl_outofcore.so
-kinectPCLviewer: /usr/lib/libpcl_features.so
-kinectPCLviewer: /usr/lib/libpcl_segmentation.so
-kinectPCLviewer: /usr/lib/libpcl_people.so
-kinectPCLviewer: /usr/lib/libpcl_registration.so
-kinectPCLviewer: /usr/lib/libpcl_recognition.so
-kinectPCLviewer: /usr/lib/libpcl_keypoints.so
-kinectPCLviewer: /usr/lib/libpcl_surface.so
-kinectPCLviewer: /usr/lib/libpcl_tracking.so
-kinectPCLviewer: /usr/lib/libpcl_apps.so
-kinectPCLviewer: /usr/lib/libvtkViews.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkInfovis.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkWidgets.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkHybrid.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkParallel.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkVolumeRendering.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkRendering.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkGraphics.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkImaging.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkIO.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkFiltering.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtkCommon.so.5.8.0
-kinectPCLviewer: /usr/lib/libvtksys.so.5.8.0
+kinectPCLviewer: CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o
 kinectPCLviewer: CMakeFiles/kinectPCLviewer.dir/build.make
+kinectPCLviewer: /usr/lib64/libboost_system-mt.so
+kinectPCLviewer: /usr/lib64/libboost_filesystem-mt.so
+kinectPCLviewer: /usr/lib64/libboost_thread-mt.so
+kinectPCLviewer: /usr/lib64/libboost_date_time-mt.so
+kinectPCLviewer: /usr/lib64/libboost_iostreams-mt.so
+kinectPCLviewer: /usr/lib64/libboost_serialization-mt.so
+kinectPCLviewer: /usr/local/lib64/libpcl_common.so
+kinectPCLviewer: /usr/local/lib64/libpcl_octree.so
+kinectPCLviewer: /usr/lib64/libOpenNI.so
+kinectPCLviewer: /usr/local/lib64/libpcl_io.so
+kinectPCLviewer: /usr/lib64/libflann_cpp.so
+kinectPCLviewer: /usr/local/lib64/libpcl_kdtree.so
+kinectPCLviewer: /usr/local/lib64/libpcl_search.so
+kinectPCLviewer: /usr/local/lib64/libpcl_sample_consensus.so
+kinectPCLviewer: /usr/local/lib64/libpcl_filters.so
+kinectPCLviewer: /usr/local/lib64/libpcl_features.so
+kinectPCLviewer: /usr/local/lib64/libpcl_registration.so
+kinectPCLviewer: /usr/local/lib64/libpcl_recognition.so
+kinectPCLviewer: /usr/local/lib64/libpcl_segmentation.so
+kinectPCLviewer: /usr/local/lib64/libpcl_visualization.so
+kinectPCLviewer: /usr/lib64/libqhull.so
+kinectPCLviewer: /usr/local/lib64/libpcl_surface.so
+kinectPCLviewer: /usr/local/lib64/libpcl_keypoints.so
+kinectPCLviewer: /usr/local/lib64/libpcl_tracking.so
+kinectPCLviewer: /usr/local/lib64/libpcl_apps.so
+kinectPCLviewer: /usr/local/lib64/libpcl_people.so
+kinectPCLviewer: /usr/local/lib64/libpcl_outofcore.so
+kinectPCLviewer: /usr/lib64/libboost_system-mt.so
+kinectPCLviewer: /usr/lib64/libboost_filesystem-mt.so
+kinectPCLviewer: /usr/lib64/libboost_thread-mt.so
+kinectPCLviewer: /usr/lib64/libboost_date_time-mt.so
+kinectPCLviewer: /usr/lib64/libboost_iostreams-mt.so
+kinectPCLviewer: /usr/lib64/libboost_serialization-mt.so
+kinectPCLviewer: /usr/lib64/libqhull.so
+kinectPCLviewer: /usr/lib64/libOpenNI.so
+kinectPCLviewer: /usr/lib64/libflann_cpp.so
+kinectPCLviewer: /usr/local/lib64/libpcl_common.so
+kinectPCLviewer: /usr/local/lib64/libpcl_octree.so
+kinectPCLviewer: /usr/local/lib64/libpcl_io.so
+kinectPCLviewer: /usr/local/lib64/libpcl_kdtree.so
+kinectPCLviewer: /usr/local/lib64/libpcl_search.so
+kinectPCLviewer: /usr/local/lib64/libpcl_sample_consensus.so
+kinectPCLviewer: /usr/local/lib64/libpcl_filters.so
+kinectPCLviewer: /usr/local/lib64/libpcl_features.so
+kinectPCLviewer: /usr/local/lib64/libpcl_registration.so
+kinectPCLviewer: /usr/local/lib64/libpcl_recognition.so
+kinectPCLviewer: /usr/local/lib64/libpcl_segmentation.so
+kinectPCLviewer: /usr/local/lib64/libpcl_visualization.so
+kinectPCLviewer: /usr/local/lib64/libpcl_surface.so
+kinectPCLviewer: /usr/local/lib64/libpcl_keypoints.so
+kinectPCLviewer: /usr/local/lib64/libpcl_tracking.so
+kinectPCLviewer: /usr/local/lib64/libpcl_apps.so
+kinectPCLviewer: /usr/local/lib64/libpcl_people.so
+kinectPCLviewer: /usr/local/lib64/libpcl_outofcore.so
 kinectPCLviewer: CMakeFiles/kinectPCLviewer.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable kinectPCLviewer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/kinectPCLviewer.dir/link.txt --verbose=$(VERBOSE)
@@ -161,7 +146,7 @@ kinectPCLviewer: CMakeFiles/kinectPCLviewer.dir/link.txt
 CMakeFiles/kinectPCLviewer.dir/build: kinectPCLviewer
 .PHONY : CMakeFiles/kinectPCLviewer.dir/build
 
-CMakeFiles/kinectPCLviewer.dir/requires: CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o.requires
+CMakeFiles/kinectPCLviewer.dir/requires: CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o.requires
 .PHONY : CMakeFiles/kinectPCLviewer.dir/requires
 
 CMakeFiles/kinectPCLviewer.dir/clean:
@@ -169,6 +154,6 @@ CMakeFiles/kinectPCLviewer.dir/clean:
 .PHONY : CMakeFiles/kinectPCLviewer.dir/clean
 
 CMakeFiles/kinectPCLviewer.dir/depend:
-	cd /home/abr/testpcl/kinec/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/abr/testpcl/kinec /home/abr/testpcl/kinec /home/abr/testpcl/kinec/build /home/abr/testpcl/kinec/build /home/abr/testpcl/kinec/build/CMakeFiles/kinectPCLviewer.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/fox/Documents/OOR/SourceCode/kin_viewer/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/fox/Documents/OOR/SourceCode/kin_viewer /home/fox/Documents/OOR/SourceCode/kin_viewer /home/fox/Documents/OOR/SourceCode/kin_viewer/build /home/fox/Documents/OOR/SourceCode/kin_viewer/build /home/fox/Documents/OOR/SourceCode/kin_viewer/build/CMakeFiles/kinectPCLviewer.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/kinectPCLviewer.dir/depend
 

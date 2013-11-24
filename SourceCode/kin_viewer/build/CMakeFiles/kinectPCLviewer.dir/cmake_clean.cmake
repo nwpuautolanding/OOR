@@ -1,5 +1,5 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/kinectPCLviewer.dir/src/main.cpp.o"
+  "CMakeFiles/kinectPCLviewer.dir/src/pcloudview.cpp.o"
   "kinectPCLviewer.pdb"
   "kinectPCLviewer"
 )
