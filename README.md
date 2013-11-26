@@ -1,4 +1,4 @@
 OOR
 ===
 
-Robotics Project
+Robotics Project: Office Obgect Recognition
