@@ -686,6 +686,10 @@ CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/co
 CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/conversions.h
 CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/correspondence.h
 CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/exceptions.h
+CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/features/feature.h
+CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/features/impl/feature.hpp
+CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/features/impl/normal_3d.hpp
+CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/features/normal_3d.h
 CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/filters/boost.h
 CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/filters/extract_indices.h
 CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o: /usr/include/pcl-1.7/pcl/filters/filter.h

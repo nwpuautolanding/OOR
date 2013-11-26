@@ -687,6 +687,10 @@ CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o
  /usr/include/pcl-1.7/pcl/conversions.h
  /usr/include/pcl-1.7/pcl/correspondence.h
  /usr/include/pcl-1.7/pcl/exceptions.h
+ /usr/include/pcl-1.7/pcl/features/feature.h
+ /usr/include/pcl-1.7/pcl/features/impl/feature.hpp
+ /usr/include/pcl-1.7/pcl/features/impl/normal_3d.hpp
+ /usr/include/pcl-1.7/pcl/features/normal_3d.h
  /usr/include/pcl-1.7/pcl/filters/boost.h
  /usr/include/pcl-1.7/pcl/filters/extract_indices.h
  /usr/include/pcl-1.7/pcl/filters/filter.h
