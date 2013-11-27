@@ -1,7 +1,6 @@
 #ifndef PRMTVPROCESS_H_
 #define PRMTVPROCESS_H_
 
-
 /*This should be cleaned, we don't need all this headers*/
 #include <pcl/kdtree/kdtree_flann.h>
 #include <pcl/ModelCoefficients.h>
@@ -31,7 +30,13 @@ using namespace std;
 
 void getCentDist(vector<PointCloud<PointXYZRGBA> >);
 float getMinDist(PointCloud<PointXYZRGBA>::Ptr, PointCloud<PointXYZRGBA>::Ptr);
+void getGroup(vector<PointCloud<PointXYZRGBA>::Ptr > &clusters, float threshold);
+
 void getObjClusters(PointCloud<PointXYZRGBA>::Ptr sceneCloud, vector<PointCloud<PointXYZRGBA>::Ptr > &outVector);
+void getCylClusters(PointCloud<PointXYZRGBA>::Ptr sceneCloud, vector<PointCloud<PointXYZRGBA>::Ptr > &outVector);
+void getSphClusters(PointCloud<PointXYZRGBA>::Ptr sceneCloud, vector<PointCloud<PointXYZRGBA>::Ptr > &outVector);
+void getPlnClusters(PointCloud<PointXYZRGBA>::Ptr &sceneCloud, vector<PointCloud<PointXYZRGBA>::Ptr > &outVector);
+
 void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > &groupClouds);
 
 #endif 
