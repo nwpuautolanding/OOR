@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/bheliom/RoboticsProject/OOR/SourceCode/prmtvProcess
+CMAKE_SOURCE_DIR = /home/abr/visual/vis
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/bheliom/RoboticsProject/OOR/SourceCode/prmtvProcess/build
+CMAKE_BINARY_DIR = /home/abr/visual/vis
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -66,9 +66,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bheliom/RoboticsProject/OOR/SourceCode/prmtvProcess/build/CMakeFiles /home/bheliom/RoboticsProject/OOR/SourceCode/prmtvProcess/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abr/visual/vis/CMakeFiles /home/abr/visual/vis/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/bheliom/RoboticsProject/OOR/SourceCode/prmtvProcess/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/abr/visual/vis/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -96,65 +96,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named prmtvGrouping
+# Target rules for targets named pcl_visualizer_demo
 
 # Build rule for target.
-prmtvGrouping: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 prmtvGrouping
-.PHONY : prmtvGrouping
+pcl_visualizer_demo: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pcl_visualizer_demo
+.PHONY : pcl_visualizer_demo
 
 # fast build rule for target.
-prmtvGrouping/fast:
-	$(MAKE) -f CMakeFiles/prmtvGrouping.dir/build.make CMakeFiles/prmtvGrouping.dir/build
-.PHONY : prmtvGrouping/fast
+pcl_visualizer_demo/fast:
+	$(MAKE) -f CMakeFiles/pcl_visualizer_demo.dir/build.make CMakeFiles/pcl_visualizer_demo.dir/build
+.PHONY : pcl_visualizer_demo/fast
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.cpp.o:
-	$(MAKE) -f CMakeFiles/prmtvGrouping.dir/build.make CMakeFiles/prmtvGrouping.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
-
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) -f CMakeFiles/prmtvGrouping.dir/build.make CMakeFiles/prmtvGrouping.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) -f CMakeFiles/prmtvGrouping.dir/build.make CMakeFiles/prmtvGrouping.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
-
-src/prmtvProcess.o: src/prmtvProcess.cpp.o
-.PHONY : src/prmtvProcess.o
+pcl_visualizer_demo.o: pcl_visualizer_demo.cpp.o
+.PHONY : pcl_visualizer_demo.o
 
 # target to build an object file
-src/prmtvProcess.cpp.o:
-	$(MAKE) -f CMakeFiles/prmtvGrouping.dir/build.make CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o
-.PHONY : src/prmtvProcess.cpp.o
+pcl_visualizer_demo.cpp.o:
+	$(MAKE) -f CMakeFiles/pcl_visualizer_demo.dir/build.make CMakeFiles/pcl_visualizer_demo.dir/pcl_visualizer_demo.cpp.o
+.PHONY : pcl_visualizer_demo.cpp.o
 
-src/prmtvProcess.i: src/prmtvProcess.cpp.i
-.PHONY : src/prmtvProcess.i
+pcl_visualizer_demo.i: pcl_visualizer_demo.cpp.i
+.PHONY : pcl_visualizer_demo.i
 
 # target to preprocess a source file
-src/prmtvProcess.cpp.i:
-	$(MAKE) -f CMakeFiles/prmtvGrouping.dir/build.make CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.i
-.PHONY : src/prmtvProcess.cpp.i
+pcl_visualizer_demo.cpp.i:
+	$(MAKE) -f CMakeFiles/pcl_visualizer_demo.dir/build.make CMakeFiles/pcl_visualizer_demo.dir/pcl_visualizer_demo.cpp.i
+.PHONY : pcl_visualizer_demo.cpp.i
 
-src/prmtvProcess.s: src/prmtvProcess.cpp.s
-.PHONY : src/prmtvProcess.s
+pcl_visualizer_demo.s: pcl_visualizer_demo.cpp.s
+.PHONY : pcl_visualizer_demo.s
 
 # target to generate assembly for a file
-src/prmtvProcess.cpp.s:
-	$(MAKE) -f CMakeFiles/prmtvGrouping.dir/build.make CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.s
-.PHONY : src/prmtvProcess.cpp.s
+pcl_visualizer_demo.cpp.s:
+	$(MAKE) -f CMakeFiles/pcl_visualizer_demo.dir/build.make CMakeFiles/pcl_visualizer_demo.dir/pcl_visualizer_demo.cpp.s
+.PHONY : pcl_visualizer_demo.cpp.s
 
 # Help Target
 help:
@@ -163,14 +139,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... prmtvGrouping"
+	@echo "... pcl_visualizer_demo"
 	@echo "... rebuild_cache"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
-	@echo "... src/prmtvProcess.o"
-	@echo "... src/prmtvProcess.i"
-	@echo "... src/prmtvProcess.s"
+	@echo "... pcl_visualizer_demo.o"
+	@echo "... pcl_visualizer_demo.i"
+	@echo "... pcl_visualizer_demo.s"
 .PHONY : help
 
 
