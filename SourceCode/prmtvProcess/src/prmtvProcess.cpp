@@ -1,6 +1,7 @@
 #include "prmtvProcess.hpp"
 #include <pcl/kdtree/kdtree_flann.h>
 #include <pcl/features/normal_3d.h>
+#include <pcl/surface/mls.h>
 
 using namespace pcl;
 using namespace std;
@@ -223,7 +224,7 @@ void getPlnClusters(PointCloud<PointXYZRGBA>::Ptr &sceneCloud, vector<PointCloud
   PointCloud<PointT>::Ptr cloud_cylinder (new PointCloud<PointT> ());
   extract.filter (*cloud_cylinder);
   
-  if(cloud_cylinder->points.size()>500){
+  if(cloud_cylinder->points.size()>1000){
     outVector.push_back(cloud_cylinder);
     sceneCloud = cloud_cylinder;
   }
@@ -277,6 +278,21 @@ void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > &groupClouds){
   //  vis.addPointCloud<PointXYZRGBA>(groupClouds.end(), ss.str());
   vis.spin ();
   //  vis.resetCamera ();
+}
+
+void improveCloud(PointCloud<PointXYZRGBA>::Ptr &sceneCloud){
+
+
+  pcl::PointCloud<PointXYZRGBA>::Ptr cloud (new pcl::PointCloud<PointXYZRGBA>());
+  pcl::PointCloud<PointXYZRGBA>::Ptr cloud_filtered (new pcl::PointCloud<PointXYZRGBA>());
+
+  copyPointCloud(*sceneCloud, *cloud);
+  pcl::VoxelGrid<PointXYZRGBA> sor;
+  sor.setInputCloud (cloud);
+  sor.setLeafSize (0.009f, 0.009f, 0.009f);
+  sor.filter (*cloud_filtered);
+
+  copyPointCloud(*cloud_filtered,*sceneCloud);
 }
 
 void getGroup(vector<PointCloud<PointXYZRGBA>::Ptr > &clusters, float threshold){

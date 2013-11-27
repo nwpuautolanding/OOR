@@ -38,5 +38,6 @@ void getSphClusters(PointCloud<PointXYZRGBA>::Ptr sceneCloud, vector<PointCloud<
 void getPlnClusters(PointCloud<PointXYZRGBA>::Ptr &sceneCloud, vector<PointCloud<PointXYZRGBA>::Ptr > &outVector);
 
 void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > &groupClouds);
+void improveCloud(PointCloud<PointXYZRGBA>::Ptr &sceneCloud);
 
 #endif 

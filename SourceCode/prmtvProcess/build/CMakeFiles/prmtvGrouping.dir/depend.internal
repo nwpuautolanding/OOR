@@ -673,6 +673,7 @@ CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o
  /usr/include/pcl-1.7/pcl/common/concatenate.h
  /usr/include/pcl-1.7/pcl/common/distances.h
  /usr/include/pcl-1.7/pcl/common/eigen.h
+ /usr/include/pcl-1.7/pcl/common/geometry.h
  /usr/include/pcl-1.7/pcl/common/impl/centroid.hpp
  /usr/include/pcl-1.7/pcl/common/impl/common.hpp
  /usr/include/pcl-1.7/pcl/common/impl/eigen.hpp
@@ -790,6 +791,12 @@ CMakeFiles/prmtvGrouping.dir/src/prmtvProcess.cpp.o
  /usr/include/pcl-1.7/pcl/segmentation/impl/extract_clusters.hpp
  /usr/include/pcl-1.7/pcl/segmentation/impl/sac_segmentation.hpp
  /usr/include/pcl-1.7/pcl/segmentation/sac_segmentation.h
+ /usr/include/pcl-1.7/pcl/surface/boost.h
+ /usr/include/pcl-1.7/pcl/surface/eigen.h
+ /usr/include/pcl-1.7/pcl/surface/impl/mls.hpp
+ /usr/include/pcl-1.7/pcl/surface/impl/processing.hpp
+ /usr/include/pcl-1.7/pcl/surface/mls.h
+ /usr/include/pcl-1.7/pcl/surface/processing.h
  /usr/include/pcl-1.7/pcl/visualization/area_picking_event.h
  /usr/include/pcl-1.7/pcl/visualization/boost.h
  /usr/include/pcl-1.7/pcl/visualization/cloud_viewer.h
