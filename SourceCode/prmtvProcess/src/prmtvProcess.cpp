@@ -90,7 +90,7 @@ void getObjClusters(PointCloud<PointXYZRGBA>::Ptr sceneCloud,vector<PointCloud<P
     cout << "PointCloud representing the Cluster: " << cloud_cluster->points.size () << " data points." << endl;
     stringstream ss;
     ss << "cloud_cluster_" << j << ".pcd";
-    //    writer.write<PointXYZRGBA> (ss.str (), *cloud_cluster, false); 
+        writer.write<PointXYZRGBA> (ss.str (), *cloud_cluster, false); 
     outClusters.push_back(*cloud_cluster);
     outVector.push_back(cloud_cluster);
     j++;

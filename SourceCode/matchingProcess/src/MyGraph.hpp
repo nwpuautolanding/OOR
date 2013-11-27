@@ -148,10 +148,9 @@ bool MyGraph<T>::containsSubgraph_inmersion (
 	std::cout << "Graph idx: " << graphIdx << " with type: " << vertexData[graphIdx] << std::endl;
 	std::cout << "SubGraph idx: " << subgraphIdx << " with type: " << subgraph.vertexData[subgraphIdx] << std::endl << std::endl;
 
-	bool result = false;
+	bool result = getVertexData(graphIdx) == subgraph.getVertexData(subgraphIdx);
 
-	if ( getVertexData(graphIdx) == subgraph.getVertexData(subgraphIdx) ) {
-		result = true;
+	if ( result ) {
 
 		adjlist_node_p graphNodeTmp = graphInstance->adjListArr[graphIdx].head;
 		for (size_t i = 0; i < getNumEdgesInVertex(graphIdx); ++i) {
@@ -159,6 +158,7 @@ bool MyGraph<T>::containsSubgraph_inmersion (
 			int graphIdx_new = graphNodeTmp->vertex;
 			graphNodeTmp = graphNodeTmp->next;
 
+			result = true;
 			if (!graphVisited[graphIdx_new]) {
 
 				adjlist_node_p subgraphNodeTmp = subgraph.graphInstance->adjListArr[subgraphIdx].head;
@@ -169,16 +169,18 @@ bool MyGraph<T>::containsSubgraph_inmersion (
 
 					if (!subgraphVisited[subgraphIdx_new]) {
 						// Make recursive call
-						result = containsSubgraph_inmersion(subgraph,
+						result = result && containsSubgraph_inmersion(subgraph,
 										graphIdx_new,
 										subgraphIdx_new,
 										graphVisited,
 										subgraphVisited,
 										resultSubgraphIdx);
 
+						/*
 						if (result) {
 							break;
 						}
+						*/
 					}
 				}
 
