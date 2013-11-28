@@ -1,6 +1,5 @@
 #include "prmtvProcess.hpp"
 #include <pcl/kdtree/kdtree_flann.h>
-#include <pcl/features/normal_3d.h>
 #include <pcl/surface/mls.h>
 
 using namespace pcl;

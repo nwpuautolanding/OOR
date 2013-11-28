@@ -1,5 +1,8 @@
 #include "prmtvProcess.hpp"
 
+#include <pcl/surface/bilateral_upsampling.h>
+
+
 using namespace std;
 
 int main(int argc, char** argv){
@@ -19,20 +22,20 @@ int main(int argc, char** argv){
 
   //  float minDist = getMinDist(cloudptr1,cloudptr2);
   
-  improveCloud(sceneCloud);
+  //  improveCloud(sceneCloud);
 
   int prevSize = inputVector2->size();
   int newSize = inputVector2->size()+1;
-  
+  /*
   while(prevSize<newSize){
     prevSize = inputVector2->size();
     getPlnClusters(sceneCloud, *inputVector2);
     newSize = inputVector2->size();
     }
-  
+  */
   cout<<"Number of clusters:"<<inputVector2->size()<<endl;
 
-  getObjClusters(sceneCloud, *inputVector1);
+  //  getObjClusters(sceneCloud, *inputVector1);
   
   //  getCentDist(*inputVector1);  
   
@@ -43,9 +46,11 @@ int main(int argc, char** argv){
   //    for(size_t i = 0; i<inputVector1->size();i++)
   //   getCylClusters(inputVector1->at(i), *inputVector3);  
   
-  //inputVector1->push_back(sceneCloud);
+
+  inputVector1->push_back(sceneCloud);
 
   visualizeGroup(*inputVector1);
 
   return -1;
 }
+

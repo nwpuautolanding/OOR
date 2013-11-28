@@ -14,7 +14,7 @@
 #include <pcl/filters/extract_indices.h>
 #include <iostream>
 #include <pcl/io/pcd_io.h>
-
+#include <pcl/features/normal_3d.h>
 #include <pcl/search/kdtree.h>
 
 #include <pcl/visualization/cloud_viewer.h>
