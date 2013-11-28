@@ -98,7 +98,8 @@ main (int argc, char** argv)
   }
   bool simple(false), rgb(false), custom_c(false), normals(false),
     shapes(false), viewports(false), interaction_customization(false);
-  int rr,gg,bb, point_size;
+  int rr,gg,bb ;
+  int point_size=1;
   if (pcl::console::find_argument (argc, argv, "-s") >= 0)
   {
     simple = true;
@@ -111,12 +112,18 @@ main (int argc, char** argv)
     rr= atoi(argv[3]);
     gg= atoi(argv[4]);
     bb=atoi(argv[5]);
+    if(argc==7)
+    {
     point_size=atoi(argv[6]);
+	}
     
   }
   else if (pcl::console::find_argument (argc, argv, "-r") >= 0)
   {
+	if(argc==4)
+	{  
 	point_size= atoi(argv[3]);
+	}
     rgb = true;
     std::cout << "RGB colour visualisation e\n";
   }
