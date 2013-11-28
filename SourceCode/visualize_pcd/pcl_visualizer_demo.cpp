@@ -18,7 +18,7 @@ using namespace pcl;
 void
 printUsage (const char* progName)
 {
-  std::cout << "\n\nUsage: "<<progName<<" [options] [filename.pcd ][if -c add r g b values for custom diplay]\n\n"
+  std::cout << "\n\nUsage: "<<progName<<" [options] [filename.pcd ][if -c add r g b values for custom diplay][pointsize (only -r and  -c options)]\n\n"
             << "Options:\n"
             << "-------------------------------------------\n"
             << "-h           this help\n"
@@ -40,13 +40,12 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> simpleVis (pcl::PointCloud<
   viewer->setBackgroundColor (255, 255, 255);
   viewer->addPointCloud<pcl::PointXYZ> (cloud, "sample cloud");
   viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 1, "sample cloud");
-  viewer->addCoordinateSystem (1.0);
   viewer->initCameraParameters ();
   return (viewer);
 }
 
 
-boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis (pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud)
+boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis (pcl::PointCloud<pcl::PointXYZRGBA>::ConstPtr cloud, int psize)
 {
   // --------------------------------------------
   // -----Open 3D viewer and add point cloud-----
@@ -55,14 +54,13 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> rgbVis (pcl::PointCloud<pcl
   viewer->setBackgroundColor (255, 255, 255);
   pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGBA> rgb(cloud);
   viewer->addPointCloud<pcl::PointXYZRGBA> (cloud, rgb, "sample cloud");
-  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "sample cloud");
-  viewer->addCoordinateSystem (1.0);
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, psize, "sample cloud");
   viewer->initCameraParameters ();
   return (viewer);
 }
 
 
-boost::shared_ptr<pcl::visualization::PCLVisualizer> customColourVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud, int r, int g, int b)
+boost::shared_ptr<pcl::visualization::PCLVisualizer> customColourVis (pcl::PointCloud<pcl::PointXYZ>::ConstPtr cloud, int r, int g, int b, int psize)
 {
   // --------------------------------------------
   // -----Open 3D viewer and add point cloud-----
@@ -71,8 +69,7 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> customColourVis (pcl::Point
   viewer->setBackgroundColor (255, 255, 255);
   pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> single_color(cloud, r, g, b);
   viewer->addPointCloud<pcl::PointXYZ> (cloud, single_color, "sample cloud");
-  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "sample cloud");
-  viewer->addCoordinateSystem (1.0);
+  viewer->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, psize, "sample cloud");
   viewer->initCameraParameters ();
   return (viewer);
 }
@@ -101,7 +98,8 @@ main (int argc, char** argv)
   }
   bool simple(false), rgb(false), custom_c(false), normals(false),
     shapes(false), viewports(false), interaction_customization(false);
-  int rr,gg,bb;
+  int rr,gg,bb ;
+  int point_size=1;
   if (pcl::console::find_argument (argc, argv, "-s") >= 0)
   {
     simple = true;
@@ -114,10 +112,18 @@ main (int argc, char** argv)
     rr= atoi(argv[3]);
     gg= atoi(argv[4]);
     bb=atoi(argv[5]);
+    if(argc==7)
+    {
+    point_size=atoi(argv[6]);
+	}
     
   }
   else if (pcl::console::find_argument (argc, argv, "-r") >= 0)
   {
+	if(argc==4)
+	{  
+	point_size= atoi(argv[3]);
+	}
     rgb = true;
     std::cout << "RGB colour visualisation e\n";
   }
@@ -152,19 +158,17 @@ main (int argc, char** argv)
         {
 			
             pcl::io::loadPCDFile<pcl::PointXYZRGBA>(filename.c_str(), *pcl_color_ptr);
-            //~colorcloud = *color_ptr;
         }
         catch (PCLException e1)
         {
 			
 		}
-	//~*pcl_color_ptr= colorcloud;
-	viewer = rgbVis(pcl_color_ptr);
+	viewer = rgbVis(pcl_color_ptr,point_size);
   }
   else if (custom_c)
   {
 	io::loadPCDFile<PointXYZ>(filename.c_str(), *basic_cloud_ptr);
-    viewer = customColourVis(basic_cloud_ptr,rr,gg,bb);
+    viewer = customColourVis(basic_cloud_ptr,rr,gg,bb,point_size);
   }
   else
   {
