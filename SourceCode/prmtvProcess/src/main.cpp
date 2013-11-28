@@ -26,16 +26,17 @@ int main(int argc, char** argv){
 
   int prevSize = inputVector2->size();
   int newSize = inputVector2->size()+1;
-  /*
+  
   while(prevSize<newSize){
     prevSize = inputVector2->size();
     getPlnClusters(sceneCloud, *inputVector2);
     newSize = inputVector2->size();
     }
-  */
+  
   cout<<"Number of clusters:"<<inputVector2->size()<<endl;
 
-  //  getObjClusters(sceneCloud, *inputVector1);
+  getObjClusters(sceneCloud, *inputVector1);
+  
   
   //  getCentDist(*inputVector1);  
   
@@ -46,9 +47,12 @@ int main(int argc, char** argv){
   //    for(size_t i = 0; i<inputVector1->size();i++)
   //   getCylClusters(inputVector1->at(i), *inputVector3);  
   
-
+  /*PCDWriter writer;
+  writer.write<PointXYZRGBA> ("sceneCloud.pcd", *sceneCloud, false); 
+  */  
+  improveCloud(sceneCloud);
   inputVector1->push_back(sceneCloud);
-
+  
   visualizeGroup(*inputVector1);
 
   return -1;

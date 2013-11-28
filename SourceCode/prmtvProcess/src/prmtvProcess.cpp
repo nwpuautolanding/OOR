@@ -155,7 +155,7 @@ void getSphClusters(PointCloud<PointXYZRGBA>::Ptr sceneCloud, vector<PointCloud<
   // Estimate point normals
   ne.setSearchMethod (tree);
   ne.setInputCloud (sceneCloud);
-  ne.setKSearch (50);
+  ne.setKSearch (10);
   ne.compute (*cloud_normals);
 
   seg.setOptimizeCoefficients (true);
@@ -210,7 +210,7 @@ void getPlnClusters(PointCloud<PointXYZRGBA>::Ptr &sceneCloud, vector<PointCloud
   seg.setNormalDistanceWeight (0.1);
   seg.setMaxIterations (10000);
   seg.setDistanceThreshold (0.05);
-  seg.setRadiusLimits (0, 0.01);
+  seg.setRadiusLimits (0, 0.005);
   seg.setInputCloud (sceneCloud);
   seg.setInputNormals (cloud_normals);
 
@@ -223,10 +223,10 @@ void getPlnClusters(PointCloud<PointXYZRGBA>::Ptr &sceneCloud, vector<PointCloud
   PointCloud<PointT>::Ptr cloud_cylinder (new PointCloud<PointT> ());
   extract.filter (*cloud_cylinder);
   
-  if(cloud_cylinder->points.size()>1000){
+    if(cloud_cylinder->points.size()>500){
     outVector.push_back(cloud_cylinder);
     sceneCloud = cloud_cylinder;
-  }
+    }
 }
 
 /* Function to visualize lines between centroids of group of clouds*/
@@ -246,12 +246,14 @@ void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > &groupClouds){
   double g = (rand() % 100);
   double b = (rand() % 100);
   double max_channel = std::max (r, std::max (g, b));
+  vis.setBackgroundColor (255, 255, 255);
 
   int i = 0;
   for(vector<PointCloud<PointXYZRGBA>::Ptr >::const_iterator it = groupClouds.begin(); it != groupClouds.end(); ++it){
 
     ss << i;
-    vis.addPointCloud<PointXYZRGBA>(*it, ss.str());
+    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGBA> single_color(*it, 0, 0, 0);
+    vis.addPointCloud<PointXYZRGBA>(*it,single_color, ss.str());
 
     compute3DCentroid(**it, centroidVec1);
     centroidPoint1.getVector4fMap() = centroidVec1;
@@ -260,7 +262,7 @@ void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > &groupClouds){
       compute3DCentroid(**(it+1), centroidVec2);
       centroidPoint2.getVector4fMap() = centroidVec2;
       ss << i;
-      vis.addLine(centroidPoint1, centroidPoint2, r, g, b, ss.str());
+      //      vis.addLine(centroidPoint1, centroidPoint2, r, g, b, ss.str());
     }
     r = (rand() % 100);
     g = (rand() % 100);
@@ -288,7 +290,7 @@ void improveCloud(PointCloud<PointXYZRGBA>::Ptr &sceneCloud){
   copyPointCloud(*sceneCloud, *cloud);
   pcl::VoxelGrid<PointXYZRGBA> sor;
   sor.setInputCloud (cloud);
-  sor.setLeafSize (0.009f, 0.009f, 0.009f);
+  sor.setLeafSize (2.009f, 2.009f, 2.009f);
   sor.filter (*cloud_filtered);
 
   copyPointCloud(*cloud_filtered,*sceneCloud);
