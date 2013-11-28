@@ -3,85 +3,84 @@
 
 typedef pcl::PointXYZRGB PointType;
 
-
 boost::shared_ptr<pcl::RangeImage> readRangeImage (std::string filename) {
 
-	pcl::PointCloud<PointType>::Ptr point_cloud_ptr (new pcl::PointCloud<PointType>);
-	
-	pcl::io::loadPCDFile (filename, *point_cloud_ptr);
+        pcl::PointCloud<PointType>::Ptr point_cloud_ptr (new pcl::PointCloud<PointType>);
+        
+        pcl::io::loadPCDFile (filename, *point_cloud_ptr);
 
-	// -----------------------------------------------
-	// -----Create RangeImage from the PointCloud-----
-	// -----------------------------------------------
-	float noise_level = 0.0;
-	float min_range = 0.0f;
-	int border_size = 1;
-	float angular_resolution_x = 0.5f;
-	float angular_resolution_y = angular_resolution_x;
-	angular_resolution_x = pcl::deg2rad (angular_resolution_x);
-	angular_resolution_y = pcl::deg2rad (angular_resolution_y);
+        // -----------------------------------------------
+        // -----Create RangeImage from the PointCloud-----
+        // -----------------------------------------------
+        float noise_level = 0.0;
+        float min_range = 0.0f;
+        int border_size = 1;
+        float angular_resolution_x = 0.5f;
+        float angular_resolution_y = angular_resolution_x;
+        angular_resolution_x = pcl::deg2rad (angular_resolution_x);
+        angular_resolution_y = pcl::deg2rad (angular_resolution_y);
 
-	Eigen::Affine3f scene_sensor_pose = Eigen::Affine3f (Eigen::Translation3f (point_cloud_ptr->sensor_origin_[0],
-                                             			point_cloud_ptr->sensor_origin_[1],
-                                                             	point_cloud_ptr->sensor_origin_[2])) *
-                        					Eigen::Affine3f (point_cloud_ptr->sensor_orientation_);
-	pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
+        Eigen::Affine3f scene_sensor_pose = Eigen::Affine3f (Eigen::Translation3f (point_cloud_ptr->sensor_origin_[0],
+                                                                     point_cloud_ptr->sensor_origin_[1],
+                                                                     point_cloud_ptr->sensor_origin_[2])) *
+                                                                Eigen::Affine3f (point_cloud_ptr->sensor_orientation_);
+        pcl::RangeImage::CoordinateFrame coordinate_frame = pcl::RangeImage::CAMERA_FRAME;
 
-	boost::shared_ptr<pcl::RangeImage> range_image_ptr(new pcl::RangeImage);
-	pcl::RangeImage& range_image = *range_image_ptr;   
-	range_image.createFromPointCloud (*point_cloud_ptr, angular_resolution_x, angular_resolution_y,
+        boost::shared_ptr<pcl::RangeImage> range_image_ptr(new pcl::RangeImage);
+        pcl::RangeImage& range_image = *range_image_ptr;   
+        range_image.createFromPointCloud (*point_cloud_ptr, angular_resolution_x, angular_resolution_y,
                                     pcl::deg2rad (360.0f), pcl::deg2rad (180.0f),
                                     scene_sensor_pose, coordinate_frame, noise_level, min_range, border_size);
 
-	return range_image_ptr;
+        return range_image_ptr;
 }
 
 
 void display_RangeImage (boost::shared_ptr<pcl::RangeImage> range_image_ptr) {
 
-	pcl::visualization::RangeImageVisualizer range_image_widget ("Range image");
-	range_image_widget.showRangeImage (*range_image_ptr);
+        pcl::visualization::RangeImageVisualizer range_image_widget ("Range image");
+        range_image_widget.showRangeImage (*range_image_ptr);
 
-	while (!range_image_widget.wasStopped()) {
+        while (!range_image_widget.wasStopped()) {
 
-		range_image_widget.spinOnce();
-		pcl_sleep(0.01);
-	}
-	
+                range_image_widget.spinOnce();
+                pcl_sleep(0.01);
+        }
+        
 }
 
-	
+        
 void replaceNaNs (cv::Mat &image, float value) {
-	///typedef cv::Vec3f mt;
-	typedef float mt;
+        ///typedef cv::Vec3f mt;
+        typedef float mt;
 
-	for (cv::MatIterator_<mt> i = image.begin<mt>(); i != image.end<mt>(); ++i)
-	{
-		if (cvIsNaN(*i)) {
-			*i = value;
-			//cout << "isnan" << endl;
+        for (cv::MatIterator_<mt> i = image.begin<mt>(); i != image.end<mt>(); ++i)
+        {
+                if (cvIsNaN(*i)) {
+                        *i = value;
+                        //cout << "isnan" << endl;
 
-		}
-	}
+                }
+        }
 
 }
 
 // The normal vector must be of length 1
 float distPointToPlane (cv::Point3f point, cv::Point3f normal) {
 
-	float sn, sd, sb;
-	sn = -normal.dot(point);
-	//sd = normal.dot(normal);
-	//sb = sn/sb;
+        float sn, sd, sb;
+        sn = -normal.dot(point);
+        //sd = normal.dot(normal);
+        //sb = sn/sb;
 
-	//std::cout << "sn, sd, sb: " << sn << ", " << sd << ", " << sb << endl;
-	/*
-	sn = -dot( PL.n, (P - PL.V0));
-	sd = dot(PL.n, PL.n);
-	sb = sn / sd;
-	*/
+        //std::cout << "sn, sd, sb: " << sn << ", " << sd << ", " << sb << endl;
+        /*
+        sn = -dot( PL.n, (P - PL.V0));
+        sd = dot(PL.n, PL.n);
+        sb = sn / sd;
+        */
 
-	return sn;
+        return sn;
 }
 
 void createCorlorPointCloud (const std::vector<pcl::PointCloud<PointXYZ> > &cloudList,
