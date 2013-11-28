@@ -248,12 +248,20 @@ void visualizeGroup(const vector<PointCloud<PointXYZRGBA>::Ptr > &groupClouds){
   double max_channel = std::max (r, std::max (g, b));
   vis.setBackgroundColor (255, 255, 255);
 
+  vis.setBackgroundColor (255, 255, 255);
+
   int i = 0;
   for(vector<PointCloud<PointXYZRGBA>::Ptr >::const_iterator it = groupClouds.begin(); it != groupClouds.end(); ++it){
 
     ss << i;
+<<<<<<< HEAD
     pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZRGBA> single_color(*it, 0, 0, 0);
     vis.addPointCloud<PointXYZRGBA>(*it,single_color, ss.str());
+=======
+    pcl::visualization::PointCloudColorHandlerCustmo<pcl::PointXYZRGBA> single_color(*it, 0, 0, 0);
+    vis.addPointCloud<PointXYZRGBA>(*it, ss.str());
+>>>>>>> 73c0654987c252e6eef8dc723f32f8711663dbb4
+
 
     compute3DCentroid(**it, centroidVec1);
     centroidPoint1.getVector4fMap() = centroidVec1;

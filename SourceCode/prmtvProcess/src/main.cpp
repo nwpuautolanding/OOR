@@ -44,16 +44,16 @@ int main(int argc, char** argv){
 
   //  inputVector1->erase(inputVector1->begin()+1,inputVector1->begin()+3);
 
-  //    for(size_t i = 0; i<inputVector1->size();i++)
-  //   getCylClusters(inputVector1->at(i), *inputVector3);  
+  for(size_t i = 0; i<inputVector1->size();i++)
+     getCylClusters(inputVector1->at(i), *inputVector3);  
   
   /*PCDWriter writer;
   writer.write<PointXYZRGBA> ("sceneCloud.pcd", *sceneCloud, false); 
   */  
-  improveCloud(sceneCloud);
-  inputVector1->push_back(sceneCloud);
+  //improveCloud(sceneCloud);
+  //inputVector1->push_back(sceneCloud);
   
-  visualizeGroup(*inputVector1);
+  //  visualizeGroup(*inputVector3);
 
   return -1;
 }

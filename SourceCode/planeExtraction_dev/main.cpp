@@ -120,6 +120,9 @@ int main (int argn, char ** argv) {
 		*/
 	}
 
+	PointCloud<PointXYZRGB> midSeg;
+	createCorlorPointCloud(planeList, midSeg);
+	io::savePCDFile("mid_plane_pointcloud.pcd", midSeg, true);
 
 	planeList.clear();
 	boost::shared_ptr<PointCloud<PointXYZINormal> > dist_PointCloud (new PointCloud<PointXYZINormal>());
