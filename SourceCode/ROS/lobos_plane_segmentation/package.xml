@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>pclPlaneSegmentation</name>
+  <name>lobos_plane_segmentation</name>
   <version>0.0.0</version>
   <description>The pclPlaneSegmentation package</description>
 
