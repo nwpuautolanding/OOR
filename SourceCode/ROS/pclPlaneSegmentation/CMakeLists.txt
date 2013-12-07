@@ -8,7 +8,7 @@ find_package(catkin REQUIRED COMPONENTS
   pcl_conversions
   pcl_ros
   roscpp
-  sensor_msg
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
