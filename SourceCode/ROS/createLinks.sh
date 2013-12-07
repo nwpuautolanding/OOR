@@ -3,6 +3,7 @@
 if [ $# -ne 1 ]
 then
 	echo "Usage: $0 <path to ros src workspace>"
+	exit
 fi
 
 currentDir="$( cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd )"
