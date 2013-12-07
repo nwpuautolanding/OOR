@@ -13,6 +13,6 @@ do
 	cleanNode="${node%?}"
 	sourceDir="$currentDir/$cleanNode"
 	destDir="$1/$cleanNode"
-	echo "ln -s $sourceDir $destDir"
+	echo "linking: $sourceDir to $destDir"
 	ln -s $sourceDir $destDir
 done
