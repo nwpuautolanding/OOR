@@ -81,9 +81,9 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+  INCLUDE_DIRS include
 #  LIBRARIES lobos_cluoud_pubsub
-#  CATKIN_DEPENDS pcl_conversions pcl_ros roscpp sensor_msgs
+  CATKIN_DEPENDS pcl_conversions pcl_ros roscpp sensor_msgs
 #  DEPENDS system_lib
 )
 
@@ -104,16 +104,16 @@ include_directories(
 # )
 
 ## Declare a cpp executable
-# add_executable(lobos_cluoud_pubsub_node src/lobos_cluoud_pubsub_node.cpp)
+ add_executable(test src/mainTest.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 # add_dependencies(lobos_cluoud_pubsub_node lobos_cluoud_pubsub_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(lobos_cluoud_pubsub_node
-#   ${catkin_LIBRARIES}
-# )
+ target_link_libraries(test
+   ${catkin_LIBRARIES}
+ )
 
 #############
 ## Install ##
