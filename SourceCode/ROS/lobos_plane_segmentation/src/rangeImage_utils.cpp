@@ -171,7 +171,7 @@ void writePontcloudList(std::vector<pcl::PointCloud<pcl::PointXYZ> > cloudList) 
 }
 
 
-void computePlaneExtraction (pcl::RangeImage::Ptr range_image_ptr) {
+pcl::PointCloud<pcl::PointXYZRGB> computePlaneExtraction (pcl::RangeImage::Ptr range_image_ptr) {
 
 
 	// Create horitzontal and vertical vectors	
@@ -190,7 +190,7 @@ void computePlaneExtraction (pcl::RangeImage::Ptr range_image_ptr) {
 			
 		}
 	}
-	
+
 	// Clean results
 	//replaceNaNs(*hori, 50);
 	//replaceNaNs(*vert, 50);
@@ -238,9 +238,9 @@ void computePlaneExtraction (pcl::RangeImage::Ptr range_image_ptr) {
 				//p.normal_z = j;
 				//cout << "NAN!!!" << endl;
 			//} else { 
-				p.normal_x = range_image_ptr->at(i, j).x;
-				p.normal_y = range_image_ptr->at(i, j).y;
-				p.normal_z = range_image_ptr->at(i, j).z;
+				p.normal_x = range_image_ptr->getPoint(i, j).x;
+				p.normal_y = range_image_ptr->getPoint(i, j).y;
+				p.normal_z = range_image_ptr->getPoint(i, j).z;
 			//}	
 			normals_pc_ptr->push_back(p);
 		}
@@ -326,4 +326,5 @@ void computePlaneExtraction (pcl::RangeImage::Ptr range_image_ptr) {
 //	writePontcloudList(planeList);
 	createCorlorPointCloud(planeList, finalSeg);
 
+    return finalSeg;
 }

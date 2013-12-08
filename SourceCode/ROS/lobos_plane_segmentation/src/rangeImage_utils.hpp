@@ -40,7 +40,7 @@ void decodePointCloutFromNormalTrick(
 
 
 void writePontcloudList(std::vector<pcl::PointCloud<pcl::PointXYZ> > cloudList);
-void computePlaneExtraction (pcl::RangeImage::Ptr rrangeImage);
+pcl::PointCloud<pcl::PointXYZRGB> computePlaneExtraction (pcl::RangeImage::Ptr rrangeImage);
 
 template <typename T>
 void mergePointClouds (std::vector<pcl::PointCloud<T> > &cloudList) {

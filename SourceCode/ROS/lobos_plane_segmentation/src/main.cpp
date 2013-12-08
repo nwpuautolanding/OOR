@@ -27,10 +27,15 @@ int main (int argc, char **argv) {
         if (my_rangeImageSubscriber.getIsThereNewData()) {
             pcl::RangeImage ri = my_rangeImageSubscriber.getCurrentRangeImage();
 
-	        computePlaneExtraction(ri.makeShared());	
+	        pcl::PointCloud<pcl::PointXYZRGB> segmentesPlanes = computePlaneExtraction(ri.makeShared());	
             std::cout << "Cloud computed " << std::endl;
 
+            my_cloudPublisher.publishPointcloud(segmentesPlanes);
+
+        } else {
+            std::cout << "Waiting for data to be published" << std::endl;
         }
+
         r.sleep();
     }
 
