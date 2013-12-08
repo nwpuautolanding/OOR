@@ -17,7 +17,7 @@ private:
     * Attributes
     */
     // Ros publisher
-    ros::Publishe pub;
+    ros::Publisher pub;
 
 public:
     CloudPublisher (ros::NodeHandle nh,std::string topicName);
@@ -33,7 +33,7 @@ public:
 template <typename T>
 CloudPublisher<T>::CloudPublisher (ros::NodeHandle nh, std::string topicName) {
     
-    sub = nh.advertise<sensor_msgs::PointCloud2> (topicName, 5);
+    pub = nh.advertise<sensor_msgs::PointCloud2> (topicName, 5);
     
 }
 
@@ -51,7 +51,8 @@ template <typename T>
 void CloudPublisher<T>::publishPointcloud(pcl::PointCloud<T> pc) {
 
     sensor_msgs::PointCloud2 rosCloud;
-    pcl::toROSMsg(const pcl::PointCloud<T> &pcl_cloud, sensor_msgs::PointCloud2 &cloud)
+    pcl::toROSMsg(pc, rosCloud);
+    pub.publish (rosCloud);
 
 }
 

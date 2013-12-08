@@ -107,7 +107,7 @@ include_directories(
 
 ## Declare a cpp executable
 # add_executable(pclPlaneSegmentation_node src/pclPlaneSegmentation_node.cpp)
- add_executable(pclPlaneSegmentation_node src/main.cpp)
+ add_executable(pclPlaneSegmentation_node src/main.cpp src/rangeImage_utils.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes

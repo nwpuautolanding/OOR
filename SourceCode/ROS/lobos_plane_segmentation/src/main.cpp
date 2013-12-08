@@ -4,15 +4,38 @@
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
 
-#include <lobos_cloud_pubsub/CloudSubscriber.hpp>
+#include <lobos_cloud_pubsub/CloudPublisher.hpp>
 #include <lobos_cloud_pubsub/RangeImageSubscriber.hpp>
 #include <string>
 
+#include "rangeImage_utils.hpp"
+
 int main (int argc, char **argv) {
-    ros::init (argc, argv, "my_pcl_tutorial");
+
+    // ROS initialization
+    ros::init (argc, argv, "lobos_plane_extraction");
     ros::NodeHandle nh;
-    CloudSubscriber<pcl::PointXYZ>  cs (nh, std::string("hola"));
-    RangeImageSubscriber ri (nh, std::string("adeu"), std::string("eiei"));
-    ros::spin();
+    CloudPublisher<pcl::PointXYZRGB>  my_cloudPublisher (nh, std::string("planes_segmented"));
+    RangeImageSubscriber my_rangeImageSubscriber (nh, std::string("/camera/depth/image_rect"), std::string("/camera/depth/camera_info"));
+
+    ros::AsyncSpinner spinner(4); // Use 4 threads
+    spinner.start();
+
+    while (ros::ok()) {
+
+        if (my_rangeImageSubscriber.getIsThereNewData()) {
+		pcl::RangeImage ri = my_rangeImageSubscriber.getCurrentRangeImage();
+
+	        computePlaneExtraction(ri.makeShared());	
+
+
+
+        }
+    }
+
+
+
+
+    ros::waitForShutdown();
     return 0;
 }
