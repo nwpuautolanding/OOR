@@ -18,6 +18,7 @@
 #include <pcl/console/parse.h>
 //defintion of the type fo point cloud to be used in the visualizer
 typedef pcl::PointXYZRGBA PointT;
+using namespace std;
 int psize = 0.5;
 boost::shared_ptr<pcl::visualization::PCLVisualizer> createVis ()
 {
@@ -32,27 +33,34 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> createVis ()
 }
 
 int main(int argc, char **argv) {
+
+  if (argc<1)
+  {
+	  printf("Incorrect number of arguments ,usage: [optional std::string name of node to create][input:= 'name of topic of the XYZRGBA PC to subscribe']");
+	  return 0;
+  }
   using namespace ros;
-  ros::init(argc,argv,argv[1]);
+  string node_name="RGBvisualizer";
+  if(argc<2)
+  {
+	  node_name = argv[1];
+  }
+  ros::init(argc,argv,node_name);
   ros::NodeHandle nh;
   bool update = false;
   bool rgb=false;
-  if (argc<3)
-  {
-	  printf("Incorrect number of arguments ,usage: [std::string name of node to create][std::string::name of topic of the XYZRGBA PC to subscribe]");
-	  return 0;
-  }
+  
   
   pcl::PointCloud<PointT>::Ptr ptCloud (new pcl::PointCloud<PointT>);
   pcl::visualization::PointCloudColorHandlerRGBField<PointT> color_p_cloud(ptCloud);
-  CloudSubscriber<PointT>  cs (nh, argv[2]);
+  CloudSubscriber<PointT>  cs (nh, "input");
   ros::AsyncSpinner spinner(1); // Use 1 threads
   spinner.start();
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
   viewer = createVis();
   while (!viewer->wasStopped ())
    {
-            viewer->spinOnce (1);
+            viewer->spinOnce (1000);
             // Get lock on the boolean update and check if cloud was updated
             
             if(cs.getIsThereNewData())

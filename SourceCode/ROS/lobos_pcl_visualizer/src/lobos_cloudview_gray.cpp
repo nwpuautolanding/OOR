@@ -41,12 +41,13 @@ boost::shared_ptr<pcl::visualization::PCLVisualizer> createVis ()
 int main(int argc, char **argv) {
   using namespace ros;
   //Ros intializaton, arg[1] is the name that will be givne to the node, this is useful when running several instances of the node, remember that twio nodes with the same name can't run
+  
   ros::init(argc,argv,argv[1]);
   ros::NodeHandle nh;
   
-  if (argc<3)
+  if (argc<1)
   {
-	  printf("Incorrect number of arguments ,usage: [std::string name of node to create][std::string::name of topic of the XYZ PC  to subscribe][optional  r g b values for visualization of the point cloud]");
+	  printf("Incorrect number of arguments ,usage: [std::string name of node to create][optional  r g b values for visualization of the point cloud][input = std::string::name of topic of the XYZ PC  to subscribe]");
 	  return 0;
   }
   if (argc>3)
@@ -57,7 +58,8 @@ int main(int argc, char **argv) {
   }
   pcl::PointCloud<PointT>::Ptr ptCloud (new pcl::PointCloud<PointT>);
   pcl::visualization::PointCloudColorHandlerCustom<PointT> color_p_cloud(ptCloud, r, g, b); 
-  CloudSubscriber<PointT>  cs (nh, argv[2]);
+  //~CloudSubscriber<PointT>  cs (nh, argv[2]);
+  CloudSubscriber<PointT>  cs (nh, "input");
   ros::AsyncSpinner spinner(1); // Use 1 threads
   spinner.start();
   boost::shared_ptr<pcl::visualization::PCLVisualizer> viewer;
