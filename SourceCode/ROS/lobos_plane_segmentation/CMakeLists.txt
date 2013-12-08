@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   pcl_ros
   roscpp
   sensor_msgs
+  lobos_cloud_pubsub
 )
 
 ## System dependencies are found with CMake's conventions
@@ -95,6 +96,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -112,9 +114,9 @@ include_directories(
 # add_dependencies(pclPlaneSegmentation_node pclPlaneSegmentation_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(pclPlaneSegmentation_node
-#   ${catkin_LIBRARIES}
-# )
+ target_link_libraries(pclPlaneSegmentation_node
+   ${catkin_LIBRARIES}
+ )
 
 #############
 ## Install ##

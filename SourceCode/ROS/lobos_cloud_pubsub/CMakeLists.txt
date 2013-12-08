@@ -96,7 +96,6 @@ catkin_package(
 # include_directories(include)
 include_directories(
   include
-  include/lobos_cloud_pubsub
   ${catkin_INCLUDE_DIRS}
 )
 
