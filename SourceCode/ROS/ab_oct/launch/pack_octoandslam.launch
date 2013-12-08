@@ -1,0 +1,38 @@
+<launch>
+  <include file="$(find turtlebot_bringup)/launch/3dsensor.launch">
+    <arg name="rgb_processing" value="false" />
+    <arg name="depth_registration" value="false" />
+    <arg name="depth_processing" value="true" />
+    
+    <!-- We must specify an absolute topic name because if not it will be prefixed by "$(arg camera)".
+         Probably is a bug in the nodelet manager: https://github.com/ros/nodelet_core/issues/7 --> 
+    <arg name="scan_topic" value="/scan" />
+  </include>
+
+  <include file="$(find turtlebot_navigation)/launch/includes/gmapping.launch.xml"/>
+
+  <include file="$(find turtlebot_navigation)/launch/includes/move_base.launch.xml"/>
+
+  <!-- This stuff copied from octomap_server/launch/octomap_mapping.launch, with param mods -->
+  <!-- Octomap -->
+  <node pkg="octomap_server" type="octomap_server_node" name="octomap_server">
+    <param name="resolution" value="0.005" />
+
+    <!-- fixed map frame (set to 'map' if SLAM or localization running!) -->
+    <param name="frame_id" type="string" value="map" />
+
+    <!-- maximum range to integrate (speedup!) -->
+    <param name="sensor_model/max_range" value="4.0" />
+    
+    <!-- Exlcude ground plane from readings -->
+    <param name="filter_ground" value="true" />
+    
+    <!-- Deactivate latch : Whether topics are published latched or only once per change. For maximum performance when building a map (with frequent updates), set to false. When set to true, on every map change all topics and visualizations will be created. -->
+    <param name="latch" value="false" />
+
+    <!-- data source to integrate (PointCloud2) -->
+    <remap from="cloud_in" to="/camera/depth/points" />
+  </node>
+	
+	
+</launch>
