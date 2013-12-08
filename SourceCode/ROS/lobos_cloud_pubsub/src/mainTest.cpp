@@ -1,5 +1,5 @@
 
-#include <lobos_cloud_pubsub/cloudSubscriber.hpp>
+#include <lobos_cloud_pubsub/CloudSubscriber.hpp>
 
 int main(int argc, char const *argv[])
 {

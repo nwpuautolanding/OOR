@@ -82,7 +82,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
   INCLUDE_DIRS include
-#  LIBRARIES lobos_cluoud_pubsub
+  LIBRARIES lobos_cluoud_pubsub
   CATKIN_DEPENDS pcl_conversions pcl_ros roscpp sensor_msgs
 #  DEPENDS system_lib
 )
@@ -100,9 +100,9 @@ include_directories(
 )
 
 ## Declare a cpp library
-# add_library(lobos_cluoud_pubsub
-#   src/${PROJECT_NAME}/lobos_cluoud_pubsub.cpp
-# )
+ add_library(lobos_cluoud_pubsub
+   src/${PROJECT_NAME}/RangeImageSubscriber.cpp
+ )
 
 ## Declare a cpp executable
  add_executable(lobos_cloud_pubsub_node src/mainTest.cpp)
