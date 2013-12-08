@@ -21,7 +21,7 @@ int main (int argc, char **argv) {
 
     ros::AsyncSpinner spinner(1); 
     spinner.start();
-    ros::Rate r(1)
+    ros::Rate r(1);
     while (ros::ok()) {
 
         if (my_rangeImageSubscriber.getIsThereNewData()) {
