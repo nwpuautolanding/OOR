@@ -28,6 +28,7 @@ int main (int argc, char **argv) {
             pcl::RangeImage ri = my_rangeImageSubscriber.getCurrentRangeImage();
             std::cout << "range image size " << ri.height << " " << ri.width << std::endl;
 	        pcl::PointCloud<pcl::PointXYZRGB> segmentesPlanes = computePlaneExtraction(ri.makeShared());	
+            std::cout << "Cloud Size: " << segmentesPlanes.size() <<std::endl;
             std::cout << "Cloud computed " << std::endl;
 
             my_cloudPublisher.publishPointcloud(segmentesPlanes);

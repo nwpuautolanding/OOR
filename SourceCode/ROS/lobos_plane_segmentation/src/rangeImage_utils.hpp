@@ -68,7 +68,7 @@ void mergePointClouds (std::vector<pcl::PointCloud<T> > &cloudList) {
 
 					
 					float dist = pcl::L2_Norm(meanMain, meanLocal,3);	
-					//std::cout << "dist: " << dist << endl;
+					std::cout << "dist: " << dist << endl;
 					if (dist < minDist) {
 						minDist = dist;
 						minIdx = j;
@@ -77,7 +77,7 @@ void mergePointClouds (std::vector<pcl::PointCloud<T> > &cloudList) {
 			}
 
 			// Merge if very similar
-			if (minDist < 0.1) {
+			if (minDist < 0.3) {
 				pcl::PointCloud<T> tmpCloud;
 				cloudList[i] += cloudList[minIdx];
 				cloudList.erase(cloudList.begin() + minIdx);
