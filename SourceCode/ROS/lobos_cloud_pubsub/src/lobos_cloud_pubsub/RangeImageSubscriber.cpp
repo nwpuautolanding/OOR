@@ -1,4 +1,4 @@
-#include <lobos_cloud_pubsub/RangeImage.hpp>
+#include <lobos_cloud_pubsub/RangeImageSubscriber.hpp>
 
 RangeImageSubscriber::RangeImageSubscriber (ros::NodeHandle nh, std::string imageRangeTopicName, std::string cameraInfoTopicName) {
     
@@ -40,7 +40,7 @@ void RangeImageSubscriber::computeRangeImage() {
         isThereNewCameraInfo = false;
 	isThereNewRangeImage = true;
 	
-        localRangeImage->setDepthImage(reinterpret_cast<const float*> (&localDepthImage->data[0]),
+        localRangeImage.setDepthImage(reinterpret_cast<const float*> (&localDepthImage->data[0]),
 	                                  localDepthImage->width, localDepthImage->height,
 	                                  localImageInfo->P[2],  localImageInfo->P[6],
 	                                  localImageInfo->P[0],  localImageInfo->P[5], angularResolution);
@@ -52,10 +52,10 @@ void RangeImageSubscriber::computeRangeImage() {
 * Getters
 */
 
-pcl::RangeImage RangeImageSubscriber::getCurrentRangeImage() {
+pcl::RangeImagePlanar RangeImageSubscriber::getCurrentRangeImage() {
 
     isThereNewRangeImage = false;
-    return rangeImage;
+    return localRangeImage;
 
 }
 

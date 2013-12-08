@@ -15,7 +15,7 @@ private:
     * Attributes
     */
     // Attribute where the point cloud is going to be saved
-    pcl::RangeImag localRangeImage;
+    pcl::RangeImagePlanar localRangeImage;
     sensor_msgs::CameraInfoConstPtr localImageInfo;
     sensor_msgs::ImageConstPtr localDepthImage;
     // Ros subscriber
@@ -29,7 +29,7 @@ private:
     //Private methods
     void depthImageCallback (const sensor_msgs::ImageConstPtr& msg);
     void cameraInfoCallback (const sensor_msgs::CameraInfoConstPtr& msg);
-    void computeRangeImage ()
+    void computeRangeImage ();
 public:
     RangeImageSubscriber (ros::NodeHandle nh, std::string imageRangeTopicName, std::string cameraInfoTopicName);
     ~RangeImageSubscriber ();
@@ -37,7 +37,7 @@ public:
     /**
      * Getters
      */
-    pcl::RangeImag getCurrentRangeImage ();
+    pcl::RangeImagePlanar getCurrentRangeImage ();
     bool getIsThereNewData ();
 
 };
