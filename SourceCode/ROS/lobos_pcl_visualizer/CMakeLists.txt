@@ -1,16 +1,17 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ab_oct)
+project(lobos_pcl_visualizer)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+  pcl_conversions
+  pcl_ros
+  roscpp
+  sensor_msgs
+  lobos_cloud_pubsub
+)
 
-find_package(octomap REQUIRED)
-
-
-## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
@@ -66,7 +67,7 @@ find_package(octomap REQUIRED)
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
+#   sensors_msgs
 # )
 
 ###################################
@@ -79,10 +80,9 @@ find_package(octomap REQUIRED)
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-
 #  INCLUDE_DIRS include
-#  LIBRARIES ab_oct
-#  CATKIN_DEPENDS other_catkin_pkg
+#  LIBRARIES ab_pclou2topcl
+#  CATKIN_DEPENDS pcl_conversions pcl_ros roscpp sensors_msgs
 #  DEPENDS system_lib
 )
 
@@ -93,24 +93,40 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 # include_directories(include)
+include_directories(
+  include
+  ${catkin_INCLUDE_DIRS}
+  #${PCL_INCLUDE_DIRS}
+ 
+ 
+)
+add_executable(lobos_cloudview_gray src/lobos_cloudview_gray.cpp)
+add_executable(lobos_cloudview_rgb src/lobos_cloudview_rgb.cpp)
+#link_directories(${PCL_LIBRARY_DIRS})
+#add_definitions(${PCL_DEFINITIONS})
+
+target_link_libraries(lobos_cloudview_gray ${catkin_LIBRARIES} ${PCL_LIBRARIES} libvtkCommon.so libvtkFiltering.so libvtkRendering.so)
+target_link_libraries(lobos_cloudview_rgb ${catkin_LIBRARIES} ${PCL_LIBRARIES} libvtkCommon.so libvtkFiltering.so libvtkRendering.so)
+## System dependencies are found with CMake's conventions
+# find_package(Boost REQUIRED COMPONENTS system)
+#add_dependencies(test_vis_multithread src/test_vis_multithread.cpp)
 
 ## Declare a cpp library
-# add_library(ab_oct
-#   src/${PROJECT_NAME}/ab_oct.cpp
+# add_library(ab_pclou2topcl
+#   src/${PROJECT_NAME}/ab_pclou2topcl.cpp
 # )
 
 ## Declare a cpp executable
-# add_executable(ab_oct_node src/ab_oct_node.cpp)
+# add_executable(ab_pclou2topcl_node src/ab_pclou2topcl_node.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-# add_dependencies(ab_oct_node ab_oct_generate_messages_cpp)
+#add_dependencies(ab_pclou2topcl_node ab_pclou2topcl_generate_messages_cpp)
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(ab_oct_node
+# target_link_libraries(ab_pclou2topcl_node
 #   ${catkin_LIBRARIES}
 # )
-link_libraries(${OCTOMAP_LIBRARIES})
 
 #############
 ## Install ##
@@ -127,7 +143,7 @@ link_libraries(${OCTOMAP_LIBRARIES})
 # )
 
 ## Mark executables and/or libraries for installation
-# install(TARGETS ab_oct ab_oct_node
+# install(TARGETS ab_pclou2topcl ab_pclou2topcl_node
 #   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 #   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -152,7 +168,7 @@ link_libraries(${OCTOMAP_LIBRARIES})
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_ab_oct.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_ab_pclou2topcl.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
