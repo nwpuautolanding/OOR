@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>lobos_cluoud_pubsub</name>
+  <name>lobos_cloud_pubsub</name>
   <version>0.0.0</version>
-  <description>The lobos_cluoud_pubsub package</description>
+  <description>The lobos_cloud_pubsub package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
