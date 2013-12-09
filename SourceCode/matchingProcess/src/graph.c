@@ -41,6 +41,7 @@ graph_p C_createGraph(int n, graph_type_e type)
     for(i = 0; i < n; i++)
     {
         graph->adjListArr[i].head = NULL;
+        graph->adjListArr[i].num_members = 0;
     }
  
     return graph;
