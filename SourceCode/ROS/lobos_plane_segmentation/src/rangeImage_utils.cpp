@@ -250,22 +250,23 @@ pcl::PointCloud<pcl::PointXYZRGB> computePlaneExtraction (pcl::RangeImage::Ptr r
 	// Clusterize normals with octree
 	vector <PointCloud <PointXYZ> > planeList;
 	vector <PointCloud <PointXYZINormal> > normal_clusterList;
-	clusterPointCloud <PointXYZINormal> (normals_pc_ptr, normal_clusterList);
+	clusterPointCloud <PointXYZINormal> (normals_pc_ptr, normal_clusterList, 3);
 	
-/*
-	for (size_t i = 0; i < normal_clusterList.size(); ++i)
-	{
-		PointCloud <PointXYZ> clusteredPoints;
-		PointCloud <PointXYZ> clusteredNormals;
-		decodePointCloutFromNormalTrick( normal_clusterList[i], clusteredPoints, clusteredNormals );
 
-		planeList.push_back(clusteredPoints);
-		//writePontcloudList(planeList);
+////for (size_t i = 0; i < normal_clusterList.size(); ++i)
+////{
+////	PointCloud <PointXYZ> clusteredPoints;
+////	PointCloud <PointXYZ> clusteredNormals;
+////	decodePointCloutFromNormalTrick( normal_clusterList[i], clusteredPoints, clusteredNormals );
 
-	}
-*/
-	//PointCloud<PointXYZRGB> midSeg;
-	//createCorlorPointCloud(planeList, midSeg);
+////	planeList.push_back(clusteredPoints);
+////	//writePontcloudList(planeList);
+
+////}
+
+///// PointCloud<PointXYZRGB> midSeg;
+///// createCorlorPointCloud(planeList, midSeg);
+///// return midSeg;
 	//io::savePCDFile("mid_plane_pointcloud.pcd", midSeg, true);
 
 	planeList.clear();
@@ -306,7 +307,7 @@ pcl::PointCloud<pcl::PointXYZRGB> computePlaneExtraction (pcl::RangeImage::Ptr r
 
 		//cout << "dist_PointCloud: " << dist_PointCloud->size() << endl;
 		vector <PointCloud<PointXYZINormal> > clusterResult;
-		clusterPointCloud<PointXYZINormal>(dist_PointCloud, clusterResult, 0.001);
+		clusterPointCloud<PointXYZINormal>(dist_PointCloud, clusterResult, 1);
 		//cout << "clusterResult size: " << clusterResult.size() << endl;
 		for (size_t j = 0; j < clusterResult.size(); ++j)
 		{

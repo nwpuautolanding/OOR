@@ -12,8 +12,9 @@ find_package(catkin REQUIRED COMPONENTS
   lobos_cloud_pubsub
 )
 
+
 ## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
+ find_package(Boost REQUIRED COMPONENTS system thread)
 find_package(OpenCV)
 
 
@@ -100,6 +101,7 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIRS}
 )
 
 ## Declare a cpp library
@@ -119,6 +121,7 @@ include_directories(
  target_link_libraries(pclPlaneSegmentation_node
    ${catkin_LIBRARIES}
    ${OpenCV_LIBRARIES}
+   ${Boost_LIBRARIES}
  )
 
 #############

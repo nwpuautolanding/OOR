@@ -7,6 +7,7 @@
 #include <pcl/range_image/range_image_planar.h>
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/CameraInfo.h>
+#include <boost/thread.hpp>
 
 class RangeImageSubscriber {
         
@@ -25,6 +26,7 @@ private:
     bool isThereNewCameraInfo;
     bool isThereNewDepthImage;
     float angularResolution;
+    boost::mutex my_mutex;
 
     //Private methods
     void depthImageCallback (const sensor_msgs::ImageConstPtr& msg);
