@@ -8,6 +8,7 @@
 #include <pcl/conversions.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/point_cloud.h>
+#include <boost/thread.hpp>
 
 template <typename T>
 class CloudSubscriber {
@@ -21,6 +22,7 @@ private:
     // Ros subscriber
     ros::Subscriber sub;
     bool isThereNewData;
+    boost::mutex my_mutex;
 
     //Private methods
     void callback (const sensor_msgs::PointCloud2ConstPtr& input);
@@ -53,6 +55,7 @@ CloudSubscriber<T>::~CloudSubscriber() {
 template <typename T>
 void CloudSubscriber<T>::callback (const sensor_msgs::PointCloud2ConstPtr& input) {
 
+    boost::lock_guard<boost::mutex> lock(my_mutex);
    //localPointCloud = pcl::fromROSMsg (input);
    pcl::fromROSMsg<T>(*input, localPointCloud);
    isThereNewData = true;
@@ -66,6 +69,7 @@ void CloudSubscriber<T>::callback (const sensor_msgs::PointCloud2ConstPtr& input
 template <typename T>
 pcl::PointCloud<T> CloudSubscriber<T>::getCurrentPointclout() {
 
+    boost::lock_guard<boost::mutex> lock(my_mutex);
     isThereNewData = false;
     return localPointCloud;
 
@@ -74,7 +78,8 @@ pcl::PointCloud<T> CloudSubscriber<T>::getCurrentPointclout() {
 template <typename T>
 bool CloudSubscriber<T>::getIsThereNewData () {
 
-   return isThereNewData;
+    boost::lock_guard<boost::mutex> lock(my_mutex);
+    return isThereNewData;
 
 }
 

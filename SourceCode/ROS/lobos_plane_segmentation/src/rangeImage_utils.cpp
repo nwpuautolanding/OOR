@@ -250,7 +250,7 @@ pcl::PointCloud<pcl::PointXYZRGB> computePlaneExtraction (pcl::RangeImage::Ptr r
 	// Clusterize normals with octree
 	vector <PointCloud <PointXYZ> > planeList;
 	vector <PointCloud <PointXYZINormal> > normal_clusterList;
-	clusterPointCloud <PointXYZINormal> (normals_pc_ptr, normal_clusterList, 3);
+	clusterPointCloud <PointXYZINormal> (normals_pc_ptr, normal_clusterList, 1);
 	
 
 ////for (size_t i = 0; i < normal_clusterList.size(); ++i)
