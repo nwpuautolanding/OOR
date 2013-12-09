@@ -118,15 +118,21 @@ bool MyGraph<T>::containsSubgraph (const MyGraph<T> &subgraph, std::vector<int> 
 
 	bool result;
 	for (size_t i = 0; i < getNumVertex(); ++i) {
-		std::vector<bool> graphVisited (getNumVertex());
-		std::vector<bool> subgraphVisited (subgraph.getNumVertex());
+		std::vector<bool> graphVisited;
+        graphVisited.assign(getNumVertex(), false);
+		std::vector<bool> subgraphVisited;
+        subgraphVisited.assign(subgraph.getNumVertex(), false);
 
 		std::cout << "restarting search with index: " << i << std::endl;
 		result = containsSubgraph_inmersion (subgraph, i, 0,  graphVisited, subgraphVisited, resultSubgraphIdx);
+
 		if (result && resultSubgraphIdx.size() == subgraph.getNumVertex()) {
+            std::cout << "trobat!!!" << std::endl;
 			break;
 		} else {
-			std::cout << "Trobat pero no complet with size: " << resultSubgraphIdx.size() << " but expected : " << subgraph.getNumVertex() << std::endl;
+			std::cout << "Trobat pero no complet with size: " << resultSubgraphIdx.size() << 
+            " but expected : " << subgraph.getNumVertex() << std::endl;
+
 			resultSubgraphIdx.clear();
 		}
 	}
@@ -142,58 +148,72 @@ bool MyGraph<T>::containsSubgraph_inmersion (
 		std::vector<bool> subgraphVisited,
 		std::vector<int> &resultSubgraphIdx) {
 
-	graphVisited[graphIdx] = true;
-	subgraphVisited[subgraphIdx] = true;
+    //bool result = false;
+    //std::cout << "Graph visited " << graphVisited << std::endl;
+    //std::cout << "Subgraph visietd" << subgraphVisited << std::endl;
 
-	std::cout << "Graph idx: " << graphIdx << " with type: " << vertexData[graphIdx] << std::endl;
-	std::cout << "SubGraph idx: " << subgraphIdx << " with type: " << subgraph.vertexData[subgraphIdx] << std::endl << std::endl;
+        graphVisited[graphIdx] = true;
+        subgraphVisited[subgraphIdx] = true;
 
-	bool result = getVertexData(graphIdx) == subgraph.getVertexData(subgraphIdx);
+        std::cout << std::endl << "Graph idx: " << graphIdx << " with type: " << vertexData[graphIdx] << std::endl;
+        std::cout << "SubGraph idx: " << subgraphIdx << " with type: " << subgraph.vertexData[subgraphIdx] << std::endl;
 
-	if ( result ) {
 
-		adjlist_node_p graphNodeTmp = graphInstance->adjListArr[graphIdx].head;
-		for (size_t i = 0; i < getNumEdgesInVertex(graphIdx); ++i) {
-			
-			int graphIdx_new = graphNodeTmp->vertex;
-			graphNodeTmp = graphNodeTmp->next;
+        bool result = getVertexData(graphIdx) == subgraph.getVertexData(subgraphIdx);
 
-			result = true;
-			if (!graphVisited[graphIdx_new]) {
+        if ( result ) {
 
-				adjlist_node_p subgraphNodeTmp = subgraph.graphInstance->adjListArr[subgraphIdx].head;
-				for (size_t j = 0; j < subgraph.getNumEdgesInVertex(subgraphIdx); ++j) {
+            adjlist_node_p subgraphNodeTmp = subgraph.graphInstance->adjListArr[subgraphIdx].head;
+            for (size_t j = 0; j < subgraph.getNumEdgesInVertex(subgraphIdx); ++j) {
+                
+                int subgraphIdx_new = subgraphNodeTmp->vertex;
+                subgraphNodeTmp = subgraphNodeTmp->next;
 
-					int subgraphIdx_new = subgraphNodeTmp->vertex;
-					subgraphNodeTmp = subgraphNodeTmp->next;
+                std::cout << "subGraph: " << j << " " << subgraphIdx << "->" << subgraphIdx_new << std::endl;
+                if (!subgraphVisited[subgraphIdx_new]) {
+                    bool nestResult = false;
+                    adjlist_node_p graphNodeTmp = graphInstance->adjListArr[graphIdx].head;
+                    for (size_t i = 0; i < getNumEdgesInVertex(graphIdx); ++i) {
 
-					if (!subgraphVisited[subgraphIdx_new]) {
-						// Make recursive call
-						result = result && containsSubgraph_inmersion(subgraph,
-										graphIdx_new,
-										subgraphIdx_new,
-										graphVisited,
-										subgraphVisited,
-										resultSubgraphIdx);
+                            int graphIdx_new = graphNodeTmp->vertex;
+                            graphNodeTmp = graphNodeTmp->next;
 
-						/*
-						if (result) {
-							break;
-						}
-						*/
-					}
-				}
+                            std::cout << "-----Graph: " << i << " "  << graphIdx << "->" << graphIdx_new << std::endl;
+                            if (!graphVisited[graphIdx_new]) {
+                                // Make recursive call
+                                nestResult =  containsSubgraph_inmersion(subgraph,
+                                                graphIdx_new,
+                                                subgraphIdx_new,
+                                                graphVisited,
+                                                subgraphVisited,
+                                                resultSubgraphIdx);
+                            } else {
+                                std::cout << "already visited" << std::endl;
+                            }
 
-				if (result) {
-					break;
-				}
-			}
-		}
-	}
-	
-	if (result) {
-		resultSubgraphIdx.push_back(graphIdx);
-	}
+                            
+                            if (nestResult) {
+                                graphVisited[graphIdx_new] = true;
+                                subgraphVisited[subgraphIdx_new] = true;
+                                break;
+                            }
+                            
+                    }
+                    result = nestResult && result;
+                }
+
+                  //if (result) {
+                  //    break;
+                  //}
+            }
+        }
+        
+        if (result) {
+            std::cout << "Adding element: " << graphIdx << std::endl;
+            resultSubgraphIdx.push_back(graphIdx);
+        }
+
+    std::cout << result << std::endl;
 	return result;
 }
 
