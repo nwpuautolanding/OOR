@@ -27,7 +27,7 @@
     <param name="latch" value="false" />
 
     <!-- data source to integrate (PointCloud2) -->
-    <remap from="cloud_in" to="/camera/depth/points"/>
+    <remap from="cloud_in" to="/camera/depth/points" />
     <!--remap from="cloud_in" to="/passthrough/output" /-->
    
   </node>

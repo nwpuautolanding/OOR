@@ -41,8 +41,9 @@ int main(int argc, char **argv) {
   }
   using namespace ros;
   string node_name="RGBvisualizer";
-  if(argc<2)
+  if(argc<4)
   {
+	  printf("in argc<3");
 	  node_name = argv[1];
   }
   ros::init(argc,argv,node_name);
