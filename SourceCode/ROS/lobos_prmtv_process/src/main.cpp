@@ -44,8 +44,9 @@ int main (int argc, char **argv) {
 	  PointCloud<PointXYZ> plane;
 	  copyPointCloud(segCloudVec[j],plane);
 
-	  if(plane.points.size()<ri.size()/10){
-	    if(getDirection(plane))
+	  	  if(plane.points.size()<ri.size()/10){
+	  //	  if(plane.points.size()<10000){	   
+ if(getDirection(plane))
 	      horPlanes.push_back(plane);
 	    else
 	      verPlanes.push_back(plane);
