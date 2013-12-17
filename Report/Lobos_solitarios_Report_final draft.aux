@@ -53,16 +53,21 @@
 \newlabel{fig:octreefree}{{7}{7}}
 \@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Octomap integation with ROS in the project\relax }}{8}}
 \newlabel{fig:OctowithROS}{{8}{8}}
+\citation{bib:planes_paper}
+\citation{bib:planes_paper}
+\citation{bib:planes_paper}
 \@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Octomap 3D mapping of a scene with ground plane substraction and a resolution of 0.025 meters was configured for the minimum voxel size \relax }}{9}}
 \newlabel{fig:octoscene}{{9}{9}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Plane Segmentation}{9}}
 \newlabel{sec:planeseg}{{5}{9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Example segmentation\relax }}{9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Example segmentation. Image from \cite  {bib:planes_paper}\relax }}{9}}
 \newlabel{fig:example_segmentation}{{10}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Algorithm}{9}}
 \newlabel{sub:plane_algorithm}{{5.1}{9}}
+\citation{bib:planes_paper}
+\citation{bib:planes_paper}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.1}Normals Computations}{10}}
-\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces In red the four neighbours of the current pixel. In green the current pixel and its normal.\relax }}{10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces In red the four neighbours of the current pixel. In green the current pixel and its normal. Image from \cite  {bib:planes_paper}\relax }}{10}}
 \newlabel{fig:example_segmentation}{{11}{10}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.2}Normals Clustering}{10}}
 \@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Plane segmentation with background points falling into two different clusters.\relax }}{11}}
@@ -70,34 +75,38 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Clustering correction with mean computation and merging.\relax }}{11}}
 \newlabel{fig:posmerging}{{13}{11}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {5.1.3}Parallel planes distinction}{11}}
+\citation{bib:pcl_url}
 \@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Final segmentation after similar cluster merging and parallel planes differentiation.\relax }}{12}}
 \newlabel{fig:final_segmentation}{{14}{12}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Algorithm implementation with PCL}{12}}
 \newlabel{sub:algorithm_implementation_with_pcl}{{5.2}{12}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Object Recognition module}{12}}
-\newlabel{sec:recognition}{{6}{12}}
-\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Object recognition pipeline after plane segmentation.\relax }}{13}}
-\newlabel{fig:pipeline}{{15}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Planes decoding}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Pseudo-algorithm for decoding the segments from the color cloud.\relax }}{13}}
-\newlabel{code:algo}{{16}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Plane extraction}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Implementation Problems}{14}}
+\newlabel{sub:implementation_problems}{{5.3}{14}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Object Recognition module}{14}}
+\newlabel{sec:recognition}{{6}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Planes decoding}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Object recognition pipeline after plane segmentation.\relax }}{15}}
+\newlabel{fig:pipeline}{{15}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Pseudo-algorithm for decoding the segments from the color cloud.\relax }}{15}}
+\newlabel{code:algo}{{16}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Plane extraction}{15}}
 \citation{pap1}
 \citation{graph}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Euclidean clustering}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Primitive fitting}{14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Primitives orientation}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Result of the algorithm without using basic shapes fitting. Top row: original input cloud, cloud with extracted planes. Bottom row: euclidean clustering, final result with grouping\relax }}{15}}
-\newlabel{fig:clustResult}{{17}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Object recognition using graph algorithm}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}ROS implementation}{15}}
-\newlabel{sec:ros_implementation}{{7}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Euclidean clustering}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Primitive fitting}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Primitives orientation}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Object recognition using graph algorithm}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Result of the algorithm without using basic shapes fitting. Top row: original input cloud, cloud with extracted planes. Bottom row: euclidean clustering, final result with grouping\relax }}{17}}
+\newlabel{fig:clustResult}{{17}{17}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}ROS implementation}{17}}
+\newlabel{sec:ros_implementation}{{7}{17}}
 \citation{pap1}
-\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Simple graph algorithm visualization for table recognition problem.\relax }}{16}}
-\newlabel{graphAlg}{{18}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Results}{16}}
-\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusions and Future Work}{16}}
-\newlabel{sec:Future Work}{{9}{16}}
+\citation{bib:planes_paper}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Simple graph algorithm visualization for table recognition problem.\relax }}{18}}
+\newlabel{graphAlg}{{18}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Results}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Conclusions and Future Work}{18}}
+\newlabel{sec:Future Work}{{9}{18}}
 \citation{pap1}
 \bibcite{bib:semantic}{1}
 \bibcite{bib:ORK}{2}
@@ -105,11 +114,14 @@
 \bibcite{bib:ROS}{4}
 \bibcite{bib:ecto}{5}
 \bibcite{bib:visualodo}{6}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Results of applying algorithm to set of 27 simple scenes.\relax }}{19}}
+\newlabel{fig:resultChart}{{19}{19}}
 \bibcite{bib:pclregis}{7}
 \bibcite{bib:octomap}{8}
-\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Results of applying algorithm to set of 27 simple scenes.\relax }}{17}}
-\newlabel{fig:resultChart}{{19}{17}}
-\bibcite{pap1}{9}
-\bibcite{pap2}{10}
-\bibcite{graph}{11}
-\newlabel{LastPage}{{}{18}}
+\bibcite{bib:planes_paper}{9}
+\bibcite{pap1}{10}
+\bibcite{pap2}{11}
+\bibcite{graph}{12}
+\newlabel{LastPage}{{}{20}}
+\xdef\lastpage@lastpage{20}
+\gdef\lastpage@lastpageHy{}

@@ -257,17 +257,22 @@ An example of a 3D map of a real scene  recorded by the turtlebot is shown in fi
 \end{figure}
 
 Octomap gives a suitable starting point for 3D mapping, however after doing some tests the 3D mapping was not always accurate probably due to the cumulative error in the localization after several time of circumnavigation. Even-though the map re-adapts to changes in the environment due to its probabilistic approach, sometimes the  errors in localization provoked by a inaccurate SLAM mapping, produces that the walls or objects appear to have shadows or ghosts. It has to be taken into account that to change the label of a voxel it has to be in the line of sight of the sensor. For example when having a voxel labelled as wall, and after circumnavigating \textit{x} time and observing again  the same place but with a bad localization, can happen that now the wall appears to be closer. New voxels will be added since the system thinks that free space is now occupied. Since the previous wall now is not reachable due to localization misalignment, it will never be updated to be a free voxel. This can be fixed by improving the localization module, probably by adding a more accurate range sensor, like a laser range sensor. 
+
+
+
+
+
 \section{Plane Segmentation}
 \label{sec:planeseg} 
 
-To make the search of primitives easier we first decided to segment the date following some rule that would split it into smaller sets but at the same time would not split the objects. After doing some literature review we found a paper ----Reference------ were they propose a method to detect and segment planes in a fast way. In their case, as in ours, the 3D data information comes from RGB-D images were the range data is used to project the pixels into 3D positions. They use an innovative approach where the neighbouring in the 3D space is approximated with the pixel neighbouring in the image.\\
+To make the search of primitives easier we first decided to segment the data following some rule that would split it into smaller sets but at the same time would not split the objects. After doing some literature review we found a paper \cite{bib:planes_paper} were they propose a method to detect and segment planes in a fast way. In their case, as in ours, the 3D data information comes from RGB-D images were the range data is used to project the pixels into 3D positions. They use an innovative approach where the neighbouring in the 3D space is approximated with the pixel neighbouring in the image. This algorithm is said to be able to run at 7 frames per second, ideally its output should be an initial approximated clustering that could be polished on later steps.\\
 
 Finally they propose some methods to do a fast approximation of the clustering of the planes.\\
 
 \begin{figure}[!htbp]
   \begin{center}
     \includegraphics[width=8cm]{./images/segmentation_result.png}
-    \caption{Example segmentation}
+    \caption{Example segmentation. Image from \cite{bib:planes_paper}}
     \label{fig:example_segmentation}
   \end{center}
 \end{figure}
@@ -299,7 +304,7 @@ First of all the algorithm assumes that two pixels in the range image will still
 \begin{figure}[!htbp]
   \begin{center}
       \includegraphics[width=8cm]{./images/normal_example.png}
-    \caption{In red the four neighbours of the current pixel. In green the current pixel and its normal.}
+      \caption{In red the four neighbours of the current pixel. In green the current pixel and its normal. Image from \cite{bib:planes_paper}}
     \label{fig:example_segmentation}
   \end{center}
 \end{figure}
@@ -350,18 +355,108 @@ Finally to cluster this distances the same technique from the previous step is u
 \subsection{Algorithm implementation with PCL}
 \label{sub:algorithm_implementation_with_pcl}
 
-The described algorithm in section~\ref{sec:plane_segmentation} has been implemented using PCL ----ref----. Three main objects from the library have been used: \textit{PointCloud}, \textit{RangeImage} and \textit{Octree}.\\
+The described algorithm in section~\ref{sec:plane_segmentation} has been implemented using PCL~\cite{bib:pcl_url}. Three main objects from the library have been used: \textit{PointCloud}, \textit{RangeImage} and \textit{Octree}.\\
 
 \begin{itemize}
     \item \textbf{PointCloud}: class that contains a set of points representing a point cloud. We use this class to contain the clustered point clouds. This class can be used to iterate through points and can be easily displayed. It is a template class and can be instantiated with different types of points (plane points, points with color, point with normal\ldots).
     \item \textbf{Octree}: implementation of an octree. After assigning data to it, it is possible to iterate through the final leafs and accessing the list of points of each  one. This was one of the problematic points during the implementation because the interface had been updated and all the on-line examples used one class method that did not exist any more. We had to look at the actual code of the class to find out how to iterate through the leafs which is not trivial on a library of this size and complexity. During the clustering the position was given by the computed normal but somehow the actual point should also be there in order to recover it after the clustering. We used the Octree class with points with normals where the point was the normal and the normal was the point.
-    \item \textbf{RangeImage}/\textbf{PlanarRangeImage}: this class represent an image where each pixel has four fields: the actual range data, and the $XYZ$ position of the pixel projected in the 3D space. This is exactly  the type of information needed by this algorithm. During the implementation the range image was computed from a point cloud read from disk. Afterwards the range image was obtained from a ROS message. The difference between RangeImage and PlanarRangeImage is that the in the case of the PlanarRangeImage is created from range data that has been previously rectified using the calibration of the camera, this is the type of data that is published in ROS.
+    \item \textbf{RangeImage}/\textbf{PlanarRangeImage}: this class represent an image where each pixel has four fields: the actual range data, and the $XYZ$ position of the pixel projected in the 3D space. This is exactly  the type of information needed by this algorithm. During the implementation the range image was computed from a point cloud read from disk. Afterwards the range image was obtained from a ROS message. The difference between RangeImage and PlanarRangeImage is that the PlanarRangeImage is created from range data that has been previously rectified using the calibration of the camera, this is the type of data that is published in ROS.
 \end{itemize}
 
-Also OpenCV --- Ref -- has been used to do the Gaussian filtering of the tangential vectors described in section~\ref{sub:plane_algorithm}.
+The first step of the algorithm as explained is to subtract neighbour points in order to calculate the tangential vectors, we use this step to copy the range image data into openCV data types that will be used later on. The next code is applied to every point fo the image in order to obtain the horizontal tangential vector, something similar is done for the vertical case:\\
 
+\begin{lstlisting}
+// horizontal vector calculation
+hori->at<cv::Vec3f>(j,i)[0] = 
+range_image_ptr->getPoint(i-1,j).x - range_image_ptr->getPoint(i+1,j).x;
+hori->at<cv::Vec3f>(j,i)[1] = 
+range_image_ptr->getPoint(i-1,j).y - range_image_ptr->getPoint(i+1,j).y;
+hori->at<cv::Vec3f>(j,i)[2] =
+range_image_ptr->getPoint(i-1,j).z - range_image_ptr->getPoint(i+1,j).z;
+\end{lstlisting}
 % subsection algorithm_implementation_with_pcl (end)
 
+The advantage of having now the data in openCV format is that we can now apply the Gaussian filters that we mentioned. Also the vectors can be accessed on by one as if they were RGB data. This way the computation of the cross product straight forward.
+
+\begin{lstlisting}
+// Gaussian filtering on the tangential vectors
+cv::GaussianBlur(*hori, *hori, cv::Size(3,3), 0);
+cv::GaussianBlur(*vert, *vert, cv::Size(3,3), 0);
+.
+.
+.
+// Cross product of the vertical and horizontal tangential vector
+crossVector = hori->at<cv::Vec3f>(j,i).cross(vert->at<cv::Vec3f>(j,i));
+\end{lstlisting}
+
+After this step we create a pcl point cloud with points with normals which will be used to feed the octree. We need to use the norm of the point as the position and we will use the left space to encode the original point. This way the point can be easily retrieved after the clustering. Next there is an example of the creation of such points.
+
+\begin{lstlisting}
+pcl::PointXYZINormal p;
+cv::Vec3f n = normals->at<cv::Vec3f>(j,i);
+
+p.x = n[0];
+p.y = n[1];
+p.z = n[2];
+p.normal_x = range_image_ptr->getPoint(i, j).x;
+p.normal_y = range_image_ptr->getPoint(i, j).y;
+p.normal_z = range_image_ptr->getPoint(i, j).z;
+\end{lstlisting}
+
+Once the normal point cloud has been created we feed an octree with this data and we iterate over all the final leafs that have data. With the points from every final leaf a new point cloud is created. All this point clouds are then returned in a std::vector. An extra step is done after the clustering where all cluster are comared to each other using its mean value and merged if they are similar enough.\\
+
+\begin{lstlisting}
+pcl::octree::OctreePointCloud <T> normals_ot (); 
+normals_ot.setInputCloud(pc_ptr);
+normals_ot.addPointsFromInputCloud();
+
+my_OctreeIterator itL (&normals_ot);
+//Iterate through all the leaf nodes of the octree
+while (*itL ) {
+    vector<int> idxList;
+    my_LeafNode *node =  (my_LeafNode*) itL.getCurrentOctreeNode();
+    
+    node->getContainerPtr()->getPointIndices(idxList);
+
+    pcl::PointCloud<T> cluster;
+    for (size_t i = 0; i < idxList.size();  ++i) { //idxList.size();
+        int idx = idxList[i];
+        T p = (*pc_ptr)[idx];
+        
+        cluster.push_back(p);	
+    }
+    clusters.push_back(cluster);
+    itL++;
+}
+\end{lstlisting}
+
+Finally from each clustered point cloud a new point cloud is created in order to differentiate between parallel planes (which have the same norm). This new point cloud will have the distance from the point to the reference plane. The same clustering technique with an octree is applied to this point cloud. A new point from this point cloud is created as follows:
+
+\begin{lstlisting}
+normal.x = meanNorm[0];
+normal.y = meanNorm[1];
+normal.z = meanNorm[2];
+point.x = normal_clusterList[i][j].normal_x;
+point.y = normal_clusterList[i][j].normal_y;
+point.z = normal_clusterList[i][j].normal_z;
+
+// Encode position as distance from point to plane
+p.x = distPointToPlane(point, normal);
+p.y = 0;
+p.z = 0;
+p.normal_x = normal_clusterList[i][j].normal_x;
+p.normal_y = normal_clusterList[i][j].normal_y;
+p.normal_z = normal_clusterList[i][j].normal_z;
+\end{lstlisting}
+
+\subsection{Implementation Problems}
+\label{sub:implementation_problems}
+
+The main difficulty we had during the implementation of this paper was to find documentation from the methods of the octree class. More concretely how to iterate through the leafs. Initially all the found references mentioned a method \textit{getData()} that did not exist in our case. Eventually we were able to find the new way of iterating the octree.\\
+
+During the implementation of the algorithm we used a point cloud from disk which its points were then projected to an image plane.  Apparently this process caused a resampling from the data going from the order of hundreds of thousands to the order of thousands. This algorithm could not be tested with real data until integrated with ROS. At this point the algorithm was not only much more slower (caused by the large amount of data) but also the segmentation was not working correctly in many cases (as was seen during the demo) that had been working previously. This problem could come first from a problem with the implementation or second from an unexpected change of type of data between others. It is possible that the type of data given by the Kinect is somehow different to the data obtained with the projection used during the implementation. \\
+
+% subsection implementation_problems (end)
 
 
 \section{Object Recognition module}
@@ -370,7 +465,7 @@ Also OpenCV --- Ref -- has been used to do the Gaussian filtering of the tangent
 This section discusses algorithm used for the object recognition in \emph{lobos\_prmtv\_process} node after planes segmentation was performed. In the following subsections each step is described in details pointing out the problems and alternative approaches taken into consideration. The general pipeline followed by this module is presented on figure \ref{fig:pipeline}. However due to poor results obtained in some sections, final approach deviated slightly from the initial idea.
 
 
-\begin{figure}
+\begin{figure}[!htbp]
   \includegraphics[scale=0.7]{images/pipeline}
   \caption{Object recognition pipeline after plane segmentation.}
   \label{fig:pipeline}
@@ -451,14 +546,14 @@ Then it compares every neighbour vertex to vertex neighbour in object pattern gr
 \section{ROS implementation} 
 \label{sec:ros_implementation}
 
-After the implementation of the algorithms we created a ROS node for each of the parts. The idea was that each node should be in charge of only one of the parts, this way the final result is more modular. As a drawback a larger amount cloud of points have to be transmitted. Point clouds tend to contain large amount of data, in our case around quarter of a million of points, and so large amounts of data need to be communicate through network. As each of the computational nodes were executed in different laptops this was not on localhost loopback connection but on real ethernet/wifi connection. ROS have some techniques that help to solve this problem using shared memory but we did not tried to use it. As a consequence for example it took some time for a point cloud to be displayed after it was computed. 
+After the implementation of the algorithms we created a ROS node for each of the parts. The idea was that each node should be in charge of only one of the parts, this way the final result is more modular. As a drawback a larger amount cloud of points have to be transmitted. Point clouds tend to contain large amount of data, in our case around quarter of a million of points, and so large amounts of data need to be communicate through network. As each of the computational nodes were executed in different laptops this was not on localhost loopback connection but on real ethernet/wifi connection. ROS have some techniques that help to solve this problem using shared memory that could have been used if all nodes where running in the same machine. As a consequence for example it took some time for a point cloud to be displayed after it was computed. The nodes in the completed system comprised:
 
 \begin{itemize}
     \item \verb|lobos_cloud_pubsub|: This node does not contain any executable, it is intended to contain common classes used for communication. It implement subscriber and publisher classes for point cloud and range image types. Other classes link to the libraries of this node. For point cloud transmission in ROS the message is of type PointCloud2 which can be easily converted to the PCL point cloud class. Its subscriber and publisher classes where implemented as template classes in order to ease the management of different point types (plane, with colour or with normals). 
 
     \item \verb|lobos_octomap|: This node contains one launch file which will start the octomap service with the parameters that we found to be best.
 
-    \item \verb|lobos_pcl_visualizer|: This node is intended to visualize point clouds. It subscribes to a topic and creates a window where the point cloud is displayed. It subscribes to a topic and creates a window where the point cloud is displayed. We crated on version to display point clouds that contain colour information for each point and one for point clouds that do not define colour. This node accept some options that will change the size of the points and in the case of colourless points the colour can be passed as a parameter.
+    \item \verb|lobos_pcl_visualizer|: This node is intended to visualize point clouds. It subscribes to a topic and creates a window where the point cloud is displayed. It subscribes to a topic and creates a window where the point cloud is displayed. We created on version to display point clouds that contain colour information for each point and one for point clouds that do not define colour. This node accept some options that will change the size of the points and in the case of colourless points the colour can be passed as a parameter.
 
     \item \verb|lobos_plane_segmentation|: This node subscribes to a range image and applies the plane segmentation algorithm described in section~\ref{sec:plane_segmentation}. Finally a point cloud with colour is published. The colours encode the cluster identifiers and ease the display.
 
@@ -481,6 +576,8 @@ Part of the false negatives results is due lack of enough vertical supports visi
 \label{sec:Future Work}
 An initial approach to the common office recognition problem was developed in this report. The final results of the implemented solution are far from being a robust, at least in the present form. It may serve as a good basis for further work. In this section main areas that should be improved are pointed out as well things that, if changed, might improve performance.
 \begin{itemize}
+    \item \textbf{Plane Segmentaiton} the implemented algorithm for plane segmentation had some implementation problems as pentioned in \ref{sub:algorithm_implementation_with_pcl}. The problem that made it not work on the real sensor data should be found and fix. The current version is fast when applied to the data used from the development up 0.7 seconds but it takes about 5 seconds on real data because the amount of processed points is much larger. In \cite{bib:planes_paper} it is claimd that the algorithm should be able to run up to 7 frames per second with the full amount of data so it should be possible to optimize the used code in future implementations. Also further testing should be performed.
+
 \item \textbf{3D mapping} To improve 3D mapping accuracy, a better 2D map construction and localization should be accomplished. If this is not possible, another approach should be developed,  like using PCL point cloud registration and solving the correspondence problem of the registered point cloud position in the 3D map. Due to the actual phase of the project in which the plane segmentation algorithm works with only the range images of the kinect sensor, the  map constructed by octomap algorithm is not yet used in the project. This team settled a starting point in this area, for future work, the integration of the output 3D octo-map containing the centroids of the voxels should be developed. A evaluation to know if  resolution of the 3D map  is suitable to perform a good object recognition when the project is more advanced, should be developed.
   \item \textbf{parameters scaling} - As it was mentioned in first three sections of object recognition part, algorithms will suffer from changes in scale at which the scene is observed and this is the biggest problem of current pipeline especially when using RANSAC. It could be solved with the module which could automaticaly compute particular parameters basing on some predefined rules with respect to distance from the sensor
   \item \textbf{probabilistic graph algorithm} - once the pipeline general performance is improved so that acceptable results are obtained, probabilistic approach as in \cite{pap1} seems to be more prudent solution as long as it does not influence computational time significantly.
@@ -515,8 +612,9 @@ Segmentation of RGB-D Images}.
    \bibitem{bib:octomap}
    Armin Hornung, Kai M. Wurm, Maren Bennewitz, Cyrill Stachniss, Wolfram BurgardOcto.\emph{Map:An Efficient Probabilistic 3D Mapping Framework Based on Octrees}. In: Proc. of the ICRA 2010 workshop on best practice in 3D perception and modeling for mobile manipulation
    
-   \bibitem{pap1} \emph{“Shape-Primitive Based Object Recognition and Grasping”} M. Nieuwenhuisen, J. Stückler, A. Berner, R. Klein, S. Behnke
-  \bibitem{pap2} \emph{“Learning the Compositional Structure of Man-Made Objects for 3D Shape Retrieval”} R. Wessel and R. Klein
+   \bibitem{bib:planes_paper} \emph{Real-Time Plane Segmentation using RGB-D Cameras} Dirk Holz, Stefan Holzer, Radu Bogdan Rusu, and Sven Behnke 
+   \bibitem{pap1} \emph{''Shape-Primitive Based Object Recognition and Grasping''} M. Nieuwenhuisen, J. Stückler, A. Berner, R. Klein, S. Behnke
+  \bibitem{pap2} \emph{''Learning the Compositional Structure of Man-Made Objects for 3D Shape Retrieval''} R. Wessel and R. Klein
   \bibitem{graph} \emph{simplestcodings.blogspot.co.uk/2013/09/graphs.html}
 \end{thebibliography}
 \end{document}
