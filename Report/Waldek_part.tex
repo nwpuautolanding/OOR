@@ -14,22 +14,24 @@
 
 
 \maketitle
-\section{Related work}
-A good example of object description using primitive shapes is \cite{pap2} however this solution is designed basing on database of CAD produced objects which is less difficult than dealing with noisy data of a point cloud. Eventhough the results obtained are relatively good, the computational time precludes using it for real time applications. In \cite{pap1} presented solution fits very well requirements of this project. The approach involves using RANSAC for primitives fitting and probabilistic graph algorithm approach for recognizing the object. Nevertheless the computational time obtained is quite high due to lack of preprocesing for the point cloud and trying to fit basic shapes on raw obtained data from kinect. Our approach is trying to decrease this time by quick preprocessing of the point cloud which allows to run RANSAC in shorter time. In addition we use a simplified graph algorithm without probabilistic approach.
+\section{Object Recognition module}
+\label{sec:recognition}
 
-\section{Object recognition module}
 This section discusses algorithm used for the object recognition in \emph{lobos\_prmtv\_process} node after planes segmentation was performed. In the following subsections each step is described in details pointing out the problems and alternative approaches taken into consideration. The general pipeline followed by this module is presented on figure \ref{fig:pipeline}. However due to poor results obtained in some sections, final approach deviated slightly from the initial idea.
 
 
 \begin{figure}
+\begin{center}
   \includegraphics[scale=0.7]{images/pipeline}
   \caption{Object recognition pipeline after plane segmentation.}
   \label{fig:pipeline}
+  \end{center}
 \end{figure}
 \subsection{Planes decoding}
 The node subscribes to topic \emph{planes\_segmented} which publishes cloud with various colors for the planes extracted. First in order to be able to work with obtained plane segments they have to be decoded. For that purpose we use a map where RGB values are considered as a key while the map value points the index of cloud in output vector. General algorithm of the function \emph{getColorSegment()} is shown on figure \ref{code:algo}.
 
 \begin{figure}[H]
+\begin{center}
 \begin{lstlisting}
 for each point i in point cloud
   if in map exists key 'i.RGB'
@@ -42,9 +44,10 @@ for each point i in point cloud
 \end{lstlisting}
 \caption{Pseudo-algorithm for decoding the segments from the color cloud.}
 \label{code:algo}
+\end{center}
 \end{figure}
 
-Disadvantage of this solution is that we have to decode already segmented in other node point cloud. Modularity comes at the cost of additional computation. This simple solution was used due to the lack of appropriate message that could handle e.g. vector of point clouds. The most optimal solution would be to create ROS message able to do so. Having that, one could avoid decoding the segments, because they would be passed directly from the segmentation node.
+The disadvantage of this solution is that we have to decode already segmented in other node point cloud. Modularity comes at the cost of additional computation. This simple solution was used due to the lack of appropriate message that could handle e.g. vector of point clouds. The most optimal solution would be to create ROS message able to do so. Having that, one could avoid decoding the segments, because they would be passed directly from the segmentation node.
 
 \subsection{Plane extraction}
 Objects are most commonly local areas in the point cloud scene. Therefore in order to focus just on the relevant part of the data, we extract unnecessary planes obtained in segmentation. First problem to perform this task is how to determine which planes are irrelevant for particular algorithm? It can be safely assumed that walls are least relevant segments, as well as ground floor, which however might be usefull e.g. to determine the basis of objects, calculate their height etc.
@@ -57,18 +60,23 @@ Objects are most commonly local areas in the point cloud scene. Therefore in ord
 \indent It can be observed from segmentation results that primitive parts like table legs are actually composed of few segments. Since the aim is to be able to recognize basic shapes represented by primitives these subsegments of the primitives have to be merged into one cluster. This can be achieved by euclidean clustering.
 \newline
 \indent In order to cluster the segments,the algorithm for given distance threshold finds the nearest neighbour for particular point and if it meets the requirements it proceeds to this point and repeats the procedure until there is no more points that can be assigned to the cluster. Since computational time is crucial, the PCL euclidean clustering uses KdTree which allows to tremendously decrease this parameter. 
-\newline\newline
-\indent KdTree structure + nearest neighbour search explanation if needed?
-\newline\newline
 Again the parameters problem arises in this case. Crucial input in case of euclidan clustering is the minimum/maximum possible size of the cluster and threshold distance between points. This will obviously vary for different input data. Size constraints for the clusters were determined again experimentally like in case of plane extraction described in previous section. Determining the distance threshold is more problematic since it will strongly depend on range at which the object was registered. Therefore the appropriate solution would be to choose this coefficient basing on the range information, however we followed less robust solution of just setting it to constant value. This significantly limits robustness of the overall algorithm because it will perform well only for object registered at certain range of distances from the sensor. 
 \subsection{Primitive fitting}
 Recognizing primitive shapes in the clusters gives the possibility to describe bigger(in terms of type variation) set of objects hence one is able to better process obtained data. For this purpose RANSAC algorithm was used as in \cite{pap1}. It allows to iteratively estimate a mathematical model, from a given input data. Since the considered problem requires generic detection, this solution fits perfectly. Algorithm is already provided with many basic shape models in PCL and in addition for clusters on which the tests were performed it did not influence the computational time in a significant way.
 \newline
 \indent The general idea of RANSAC is quite simple. Having the mathematical model it iterates through the input data and basing on predetermined threshold values it's trying to fit given point into the model thus separating inliers from outliers. The higher is the number of iterations in RANSAC that is used the better model approximation will be obtained.
 \newline
-\indent RANSAC however is no different than previously described parts of algorithm in terms of problems. It suffers even more from the parameters that are passed to the algorithm in order to fit the shape. The result depends on about 5 parameters(depending on the application) which are hard to determine in generic way for every scene. Problem with obtaining good results in terms of primitive shape fitting was the reason to slightly change and simplify the algorithm. Instead of using primitive shape specific descriptions, only their orientation was taken into consideration in order to divide the data into classes of of horizontal(planes) and vertical(supports) objects.  
+\indent RANSAC however is no different than previously described parts of algorithm in terms of problems. It suffers even more from the parameters that are passed to the algorithm in order to fit the shape. The result depends on about 5 parameters (depending on the application) which are hard to determine in generic way for every scene. Problem with obtaining good results in terms of primitive shape fitting was the reason to slightly change and simplify the algorithm. Instead of using primitive shape specific descriptions, only their orientation was taken into consideration in order to divide the data into classes of of horizontal(planes) and vertical(supports) objects.  
+\begin{figure}
+  \begin{center}
+    \includegraphics[scale=0.5]{images/rgbTable}
+    \caption{Input point cloud.}
+    \label{fig:rgbTable}
+  \end{center}
+\end{figure}
 
 \begin{figure}
+\begin{center}
   \begin{tabular}{|c|c|}
   \hline
   \includegraphics[scale=0.4]{images/cloud1} & \includegraphics[scale=0.4]{images/cloud2}\\
@@ -78,6 +86,7 @@ Recognizing primitive shapes in the clusters gives the possibility to describe b
   \end{tabular}
   \caption{Result of the algorithm without using basic shapes fitting. Top row: original input cloud, cloud with extracted planes. Bottom row: euclidean clustering, final result with grouping}
   \label{fig:clustResult}
+  \end{center}
 \end{figure}
 \subsection{Primitives orientation}
 Primitives orientation function \emph{getDirection()} was implemented in order to determine whether particular cluster is oriented verticaly or horizantaly. It was designed for the simplified version of object recognition due to poor results of basic shape fitting explained in previous section.\newline
@@ -94,22 +103,42 @@ Final problem of recognizing the object using obtained in the processing pipe cl
 Search is computed with recursive algorithm. For every vertex in the graph it is recursively compared to every vertex in the object pattern graph. 
 Then it compares every neighbour vertex to vertex neighbour in object pattern graph. The general representation of the graph algorithm is presented on figure \ref{graphAlg}.
 
+
 \begin{figure}
+\begin{center}
   \includegraphics[scale=0.5]{images/graph}
   \caption{Simple graph algorithm visualization for table recognition problem.}
   \label{graphAlg}
+  \end{center}
 \end{figure}
 
-\section{Results}
+\section{Results \& Evaluation}
+Taking into consideration segmentation part of the module for an input cloud presented on figure \ref{fig:rgbTable}, figure \ref{fig:clustResult} presents consequent processing step of the module. Presented cluster grouping was obtained for quite specific parameters adjusted to the particular scene and from different view might not yield such a promising result.
 The recognition solution was tested outside of ROS framework, on the set of 27 simple scenes(object in the middle, floor and walls) where 12 of them included table object and 15 did not. It is a small sample however taking into consideration simplicity of the scene it shows that solution does not perform really well. Results shown in figure \ref{fig:resultChart}.
 
 \begin{figure}
+\begin{center}
   \includegraphics[scale=0.7]{images/resultChart}
   \caption{Results of applying algorithm to set of 27 simple scenes.}
   \label{fig:resultChart}
+  \end{center}
 \end{figure}
 
-Part of the false negatives results is due lack of enough vertical supports visible in the point cloud. Nevertheless taking into consideration favourable conditions of the environment one can conclude that algorithm needs to be improved. However the \textbf{average computational time} registered during this test was \textbf{1.088s} which is better than in \cite{pap1}, where on average it took 19s for object recognition.
+Part of the false negatives results is due lack of enough vertical/horizontal supports visible in the point cloud. Another case is where the segmentation fails which is shown on the figure \ref{fig:fail}.
+\begin{figure}
+  \begin{center}
+    \begin{tabular}{|c|c|c|}
+    \hline
+      \includegraphics[scale=0.3]{images/fail} & \includegraphics[scale=0.3]{images/failVer} & \includegraphics[scale=0.3]{images/failHor} \\
+    \hline
+    \end{tabular}
+    \caption{From left: original image, vertical supports, horizontal segments. Color spheres indicate the same elements on consequent pictures.}
+    \label{fig:fail}
+  \end{center}
+\end{figure}
+As it can be seen on this example, front supports and top plane of the table were clustered as one even though in vertical segments we also have parts of table supports. This is result of aforementioned parameters dependent on how the cloud was regiestered as far as sensor position with respect to objects is concerned. Moreover one can notice that supports are clustered in z-direction(perpendicular to sensor plane) which gives not the most elegant solution, since single supports  resembling lines, cylinders or cones are desired. In future work, one should take into consideration removing outliers from the supports taking into consideration that support in z-x plane should form a concetraded cloud, perfectly a circle or elipse. 
+
+ Nevertheless taking into consideration favourable conditions of the environment one can conclude that algorithm needs to be improved. However the \textbf{average computational time} registered during this test was \textbf{1.088s} which is better than in \cite{pap1}, where on average it took 19s for object recognition.
 \section{Future work \& improvements}
 The final results of the implemented solution is far from being a robust one at least in the present form. It may serve as a good basis for further work. In this section main areas that should be improved are pointed out as well things that, if changed, might improve performance.
 \begin{itemize}
