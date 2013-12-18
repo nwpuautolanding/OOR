@@ -273,7 +273,7 @@ Octomap gives a suitable starting point for 3D mapping, however after doing some
 \section{Plane Segmentation}
 \label{sec:plane_segmentation} 
 
-To make the search of primitives easier we first decided to segment the data following some rule that would split it into smaller sets but at the same time would not split the objects. After doing some literature review we found a paper \cite{bib:planes_paper} were they propose a method to detect and segment planes in a fast way. In their case, as in ours, the 3D data information comes from RGB-D images were the range data is used to project the pixels into 3D positions. They use an innovative approach where the neighbouring in the 3D space is approximated with the pixel neighbouring in the image. This algorithm is said to be able to run at 7 frames per second, ideally its output should be an initial approximated clustering that could be polished on later steps.\\
+To make the search of primitives easier we first decided to segment the data following some rule that would split it into smaller sets but at the same time would not split the objects. After doing some literature review we found a paper \cite{bib:planes_paper} where they propose a method to detect and segment planes in a fast way. In their case, as in ours, the 3D data information comes from RGB-D images where the range data is used to project the pixels into 3D positions. They use an innovative approach where the neighbouring pixels in the 3D space is approximated with the pixel neighbouring in the image. This algorithm is said to be able to run at 7 frames per second, ideally its output should be an initial approximated clustering that could be polished on later steps.\\
 
 Finally they propose some methods to do a fast approximation of the clustering of the planes.\\
 
@@ -301,7 +301,7 @@ The algorithm consists of 3 main parts:
 
 \subsubsection{Normals Computations}
 
-One way to represent planes is by its normal and one point belonging to the plane. To determine if two points belong to the same plane a first step is to compute the Normal vector in each of the two points, then if they have a similar normal it could give an initial estimation of the points belonging to the same plane.  To compute the normal of one point the information of its neighbours is needed and so  the first problems arises, how can we find the neighbour of a point? One approach is to use the closest points using KNN with some fast implementation. Once this points are found a plane can be fit and from it calculate its normal.\\
+One way to represent planes is by its normal and one point belonging to the plane. To determine if two points belong to the same plane a first step is to compute the Normal vector in each of the two points, then if they have a similar normal it could give an initial estimation of the points belonging to the same plane.  To compute the normal of one point the information of its neighbours is needed and so  the first problems arises, how can we find the neighbour of a point? One approach is to use the closest points using KNN with some fast implementation. Once these points are found a plane can be fit and from it calculate its normal.\\
 
 The problem of this approach is that the search of neighbours can be very computationally expensive even when using fast algorithm that only approximate the result. Also, if many points are fit to the plane, the computation of the normal vector using eigen decomposition can also be computationally expensive. \\
 
@@ -349,7 +349,7 @@ So far the algorithm is  able to distinguish between planes with different norma
 
 The feature used to distinguish between points of different parallel planes is the distance between the point and the plane defined by the mean normal of the cluster and a set point, usually the origin (0,0,0). Points from the same plane will have the same distance to this reference plane.\\
 
-Finally to cluster this distances the same technique from the previous step is used. An octree is feed with the distances as position positions. Distances falling in the same final leaf are considered to be part of the same plane. In Figure~\ref{fig:final_segmentation} there is the final result of the plane segmentation after this step is applied, it can be seen that in contrast with~\ref{fig:posmerging} the background plane and the frontal part of the table are now not part of the same plane.\\
+Finally to cluster this distances the same technique from the previous step is used. An octree is fed with the distances as positions. Distances falling in the same final leaf are considered to be part of the same plane. In Figure~\ref{fig:final_segmentation} there is the final result of the plane segmentation after this step is applied, it can be seen that in contrast with~\ref{fig:posmerging} the background plane and the frontal part of the table are now not part of the same plane.\\
 
 \begin{figure}[!htbp]
   \begin{center}
@@ -397,7 +397,7 @@ cv::GaussianBlur(*vert, *vert, cv::Size(3,3), 0);
 crossVector = hori->at<cv::Vec3f>(j,i).cross(vert->at<cv::Vec3f>(j,i));
 \end{lstlisting}
 
-After this step we create a pcl point cloud with points with normals which will be used to feed the octree. We need to use the norm of the point as the position and we will use the left space to encode the original point. This way the point can be easily retrieved after the clustering. Next there is an example of the creation of such points.
+After this step we create a pcl point cloud with points with normals which will be used to feed the octree. We need to use the norm of the point as the position and we will use the left space to encode the original point. This way the point can be easily retrieved after the clustering. An example of the creation of such points is:
 
 \begin{lstlisting}
 pcl::PointXYZINormal p;
