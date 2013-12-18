@@ -1,20 +1,15 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.10.14)  18 DEC 2013 19:14
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.11.3)  18 DEC 2013 22:32
 entering extended mode
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **"Lobos_solitarios_Report_final draft.tex"
 (./Lobos_solitarios_Report_final draft.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
-ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
-9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
-skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
-orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
-, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
-rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
-(/usr/share/texmf-texlive/tex/latex/base/article.cls
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, uk
+english, usenglishmax, italian, catalan, galician, spanish, loaded.
+(/usr/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+(/usr/share/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -29,17 +24,17 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texmf-texlive/tex/latex/fourier/fourier.sty
+(/usr/share/texmf-dist/tex/latex/fourier/fourier.sty
 Package: fourier 2005/01/01 1.4 fourier-GUTenberg package
 
-(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+(/usr/share/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/share/texmf-texlive/tex/latex/base/t1enc.def
+(/usr/share/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+(/usr/share/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -54,7 +49,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
+(/usr/share/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 266.
@@ -89,24 +84,38 @@ Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
 Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
 Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
 Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-(/usr/share/texmf-texlive/tex/latex/fourier/fourier-orns.sty
+(/usr/share/texmf-dist/tex/latex/fourier/fourier-orns.sty
 Package: fourier-orns 2004/01/30 1.1 fourier-ornaments package
 )
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 50.
@@ -205,17 +214,17 @@ LaTeX Font Info:    Redeclaring math accent \dot on input line 255.
 LaTeX Font Info:    Redeclaring math accent \mathring on input line 256.
 \symUfutm=\mathgroup5
 )
-(/usr/share/texmf-texlive/tex/latex/sectsty/sectsty.sty
+(/usr/share/texmf-dist/tex/latex/sectsty/sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
 )
-(/usr/share/texmf-texlive/tex/latex/caption/caption.sty
-Package: caption 2009/10/09 v3.1k Customizing captions (AR)
+(/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2012/02/19 v3.2f Customizing captions (AR)
 
-(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
-Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+(/usr/share/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
@@ -228,14 +237,14 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 )
 \c@ContinuedFloat=\count87
 )
-(/var/lib/texmf/tex/generic/babel/babel.sty
-Package: babel 2008/07/06 v3.8l The Babel package
+(/usr/share/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2008/07/08 v3.8m The Babel package
 
-(/usr/share/texmf-texlive/tex/generic/babel/english.ldf
+(/usr/share/texmf-dist/tex/generic/babel/english.ldf
 Language: english 2005/03/30 v3.3o English support from the babel system
 
-(/usr/share/texmf-texlive/tex/generic/babel/babel.def
-File: babel.def 2008/07/06 v3.8l Babel common definitions
+(/usr/share/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2008/07/08 v3.8m Babel common definitions
 \babel@savecnt=\count88
 \U@D=\dimen109
 )
@@ -243,39 +252,39 @@ File: babel.def 2008/07/06 v3.8l Babel common definitions
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
-(/usr/share/texmf-texlive/tex/latex/microtype/microtype.sty
-Package: microtype 2009/03/27 v2.3d Micro-typography with pdfTeX (RS)
+(/usr/share/texmf-dist/tex/latex/microtype/microtype.sty
+Package: microtype 2010/01/10 v2.4 Micro-typography with pdfTeX (RS)
 \MT@toks=\toks15
 \MT@count=\count89
-LaTeX Info: Redefining \lsstyle on input line 1608.
-LaTeX Info: Redefining \lslig on input line 1608.
+LaTeX Info: Redefining \lsstyle on input line 1597.
+LaTeX Info: Redefining \lslig on input line 1597.
 \MT@outer@space=\skip43
-LaTeX Info: Redefining \textls on input line 1616.
+LaTeX Info: Redefining \textls on input line 1605.
 \MT@outer@kern=\dimen110
-LaTeX Info: Redefining \textmicrotypecontext on input line 2167.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2156.
 Package microtype Info: Loading configuration file microtype.cfg.
 
-(/usr/share/texmf-texlive/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2009/03/27 v2.3d microtype main configuration file (RS)
+(/usr/share/texmf-dist/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2010/01/10 v2.4 microtype main configuration file (RS)
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen111
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen112
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+(/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count90
@@ -316,7 +325,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+(/usr/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup6
 \symAMSb=\mathgroup7
@@ -324,8 +333,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 LaTeX Font Info:    Redeclaring math symbol \square on input line 128.
 )
-(/usr/share/texmf-texlive/tex/latex/amscls/amsthm.sty
-Package: amsthm 2004/08/06 v2.20
+(/usr/share/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2009/07/02 v2.20.1
 \thm@style=\toks21
 \thm@bodyfont=\toks22
 \thm@headfont=\toks23
@@ -336,41 +345,51 @@ Package: amsthm 2004/08/06 v2.20
 \thm@headsep=\skip49
 \dth@everypar=\toks26
 )
-(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/etc/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+(/usr/share/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+(/usr/share/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
 \Gread@gobject=\count102
 ))
 \Gin@req@height=\dimen120
 \Gin@req@width=\dimen121
 )
-(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+(/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
-Package: geometry 2008/12/21 v4.2 Page Geometry
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in pdf mode detected.
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count103
 \Gm@cntv=\count104
@@ -379,35 +398,38 @@ Package ifvtex Info: VTeX not detected.
 \Gm@wd@mp=\dimen123
 \Gm@odd@mp=\dimen124
 \Gm@even@mp=\dimen125
+\Gm@layoutwidth=\dimen126
+\Gm@layoutheight=\dimen127
+\Gm@layouthoffset=\dimen128
+\Gm@layoutvoffset=\dimen129
 \Gm@dimlist=\toks27
-
-(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
-(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
+)
+(/usr/share/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count106
 \lst@gtempboxa=\box28
 \lst@token=\toks28
 \lst@length=\count107
-\lst@currlwidth=\dimen126
+\lst@currlwidth=\dimen130
 \lst@column=\count108
 \lst@pos=\count109
-\lst@lostspace=\dimen127
-\lst@width=\dimen128
+\lst@lostspace=\dimen131
+\lst@width=\dimen132
 \lst@newlines=\count110
 \lst@lineno=\count111
-\lst@maxwidth=\dimen129
+\lst@maxwidth=\dimen133
 
-(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+(/usr/share/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 \c@lstnumber=\count112
 \lst@skipnumbers=\count113
 \lst@framebox=\box29
 )
-(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
+(/usr/share/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2007/02/22 1.4 listings configuration
 ))
 Package: listings 2007/02/22 1.4 (Carsten Heinz)
 
-(/usr/share/texmf-texlive/tex/latex/float/float.sty
+(/usr/share/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count114
 \float@exts=\toks29
@@ -415,10 +437,10 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks30
 \@floatcapt=\box31
 )
-(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+(/usr/share/texmf-site/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
-(/etc/texmf/tex/latex/config/color.cfg
+(/usr/share/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -432,7 +454,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
+(/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip50
 \f@ncyO@elh=\skip51
 \f@ncyO@erh=\skip52
@@ -443,9 +465,8 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 \f@ncyO@olf=\skip57
 \f@ncyO@orf=\skip58
 )
-(/usr/share/texmf-texlive/tex/latex/lastpage/lastpage.sty
-Package: lastpage 1994/06/25 v0.1b LaTeX2e package for refs to last page number
- (JPG)
+(/usr/share/texmf-dist/tex/latex/lastpage/lastpage.sty
+Package: lastpage 2011/09/01 v1.2k Refers to last page's name (HMM; JPG)
 )
 
 LaTeX Warning: Unused global option(s):
@@ -473,7 +494,7 @@ LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for FML/futm/m/it on input line 30.
 LaTeX Font Info:    Try loading font information for FML+futm on input line 30.
 
- (/usr/share/texmf-texlive/tex/latex/fourier/fmlfutm.fd
+ (/usr/share/texmf-dist/tex/latex/fourier/fmlfutm.fd
 File: fmlfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futm.
 )
 LaTeX Font Info:    ... okay on input line 30.
@@ -481,7 +502,7 @@ LaTeX Font Info:    Checking defaults for FMS/futm/m/n on input line 30.
 LaTeX Font Info:    Try loading font information for FMS+futm on input line 30.
 
 
-(/usr/share/texmf-texlive/tex/latex/fourier/fmsfutm.fd
+(/usr/share/texmf-dist/tex/latex/fourier/fmsfutm.fd
 File: fmsfutm.fd 2004/10/30 Fontinst v1.926 font definitions for FMS/futm.
 )
 LaTeX Font Info:    ... okay on input line 30.
@@ -489,20 +510,20 @@ LaTeX Font Info:    Checking defaults for FMX/futm/m/n on input line 30.
 LaTeX Font Info:    Try loading font information for FMX+futm on input line 30.
 
 
-(/usr/share/texmf-texlive/tex/latex/fourier/fmxfutm.fd
+(/usr/share/texmf-dist/tex/latex/fourier/fmxfutm.fd
 File: fmxfutm.fd futm-extension
 )
 LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 30.
 
-(/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+(/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 30.
 LaTeX Font Info:    Try loading font information for T1+futs on input line 30.
 
-(/usr/share/texmf-texlive/tex/latex/fourier/t1futs.fd
+(/usr/share/texmf-dist/tex/latex/fourier/t1futs.fd
 File: t1futs.fd 2004/03/02 Fontinst v1.926 font definitions for T1/futs.
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -520,66 +541,110 @@ Package microtype Info: No tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
 
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+(/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count115
-\scratchdimen=\dimen130
+\scratchdimen=\dimen134
 \scratchbox=\box32
 \nofMPsegments=\count116
 \nofMParguments=\count117
 \everyMPshowfont=\toks31
 \MPscratchCnt=\count118
-\MPscratchDim=\dimen131
+\MPscratchDim=\dimen135
 \MPnumerator=\count119
+\makeMPintoPDFobject=\count120
 \everyMPtoPDFconversion=\toks32
+) (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
-*geometry auto-detecting driver*
-*geometry detected driver: pdftex*
--------------------- Geometry parameters
-paper: a4paper
-landscape: --
-twocolumn: --
-twoside: --
-asymmetric: --
-h-parts: 72.26999pt, 452.9679pt, 72.26999pt
-v-parts: 72.26999pt, 700.50687pt, 72.26999pt
-hmarginratio: --
-vmarginratio: --
-lines: --
-heightrounded: --
-bindingoffset: 0.0pt
-truedimen: --
-includehead: --
-includefoot: --
-includemp: --
-driver: pdftex
--------------------- Page layout dimensions and switches
-\paperwidth  597.50787pt
-\paperheight 845.04684pt
-\textwidth  452.9679pt
-\textheight 700.50687pt
-\oddsidemargin  0.0pt
-\evensidemargin 0.0pt
-\topmargin  -37.0pt
-\headheight 12.0pt
-\headsep    25.0pt
-\footskip   30.0pt
-\marginparwidth 65.0pt
-\marginparsep   11.0pt
-\columnsep  10.0pt
-\skip\footins  9.0pt plus 4.0pt minus 2.0pt
-\hoffset 0.0pt
-\voffset 0.0pt
-\mag 1000
 
-(1in=72.27pt, 1cm=28.45pt)
------------------------
-\c@lstlisting=\count120
+(/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\c@lstlisting=\count121
+Package lastpage Info: Please have a look at the pageslts package at
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             macros/latex/contrib/pageslts/ 
+(lastpage)             or
+(lastpage)             http://www.ctan.org/tex-archive/ 
+(lastpage)             install/macros/latex/contrib/pageslts.tds.zip
+(lastpage)             ! on input line 30.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <20.74> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 51.
 LaTeX Font Info:    Try loading font information for FML+futmi on input line 65
 .
-(/usr/share/texmf-texlive/tex/latex/fourier/fmlfutmi.fd
+(/usr/share/texmf-dist/tex/latex/fourier/fmlfutmi.fd
 File: fmlfutmi.fd 2004/10/30 Fontinst v1.926 font definitions for FML/futmi.
 )
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
@@ -596,18 +661,18 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 (Font)              scaled to size 5.51999pt on input line 65.
 LaTeX Font Info:    Try loading font information for U+msa on input line 65.
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-(/usr/share/texmf-texlive/tex/latex/microtype/mt-msa.cfg
+(/usr/share/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 65.
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
-(/usr/share/texmf-texlive/tex/latex/microtype/mt-msb.cfg
+(/usr/share/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
@@ -635,9 +700,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 98--100
 
  []
 
-<images/chair.png, id=12, 577.15625pt x 349.305pt>
+<images/chair.png, id=13, 577.15625pt x 349.305pt>
 File: images/chair.png Graphic file (type png)
  <use images/chair.png>
+Package pdftex.def Info: images/chair.png used on input line 107.
+(pdftex.def)             Requested size: 226.48395pt x 137.07053pt.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <7> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 108.
 
@@ -647,9 +714,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 112--115
 
 LaTeX Font Info:    Try loading font information for TS1+futs on input line 118
 .
-(/usr/share/texmf-texlive/tex/latex/fourier/ts1futs.fd
+(/usr/share/texmf-dist/tex/latex/fourier/ts1futs.fd
 File: ts1futs.fd 2004/03/26 Fontinst v1.926 font definitions for TS1/futs.
-) [2 <./images/chair.png (PNG copy)>]
+) [2 <./images/chair.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 126--128
 
  []
@@ -659,10 +726,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
-<images/spintable.png, id=16, 597.23125pt x 486.81876pt>
+<images/spintable.png, id=17, 597.23125pt x 486.81876pt>
 File: images/spintable.png Graphic file (type png)
 
-<use images/spintable.png> [3 <./images/spintable.png (PNG copy)>]
+<use images/spintable.png>
+Package pdftex.def Info: images/spintable.png used on input line 139.
+(pdftex.def)             Requested size: 226.48395pt x 184.6142pt.
+ [3 <./images/spintable.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 156--158
 
  []
@@ -672,17 +742,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
 
-[4] <images/plan1.png, id=23, 959.585pt x 441.65pt>
+[4] <images/plan1.png, id=24, 959.585pt x 441.65pt>
 File: images/plan1.png Graphic file (type png)
  <use images/plan1.png>
-<images/plan2.png, id=24, 974.64125pt x 466.74374pt>
+Package pdftex.def Info: images/plan1.png used on input line 168.
+(pdftex.def)             Requested size: 362.37569pt x 166.78418pt.
+
+<images/plan2.png, id=25, 974.64125pt x 466.74374pt>
 File: images/plan2.png Graphic file (type png)
  <use images/plan2.png>
-[5 <./images/plan1.png (PNG copy)> <./images/plan2.png (PNG copy)>]
-<images/flow_chart.png, id=28, 841.73294pt x 1191.74648pt>
+Package pdftex.def Info: images/plan2.png used on input line 177.
+(pdftex.def)             Requested size: 317.07614pt x 151.83948pt.
+
+[5 <./images/plan1.png> <./images/plan2.png>]
+<images/flow_chart.png, id=29, 841.73294pt x 1191.74648pt>
 File: images/flow_chart.png Graphic file (type png)
 
 <use images/flow_chart.png>
+Package pdftex.def Info: images/flow_chart.png used on input line 195.
+(pdftex.def)             Requested size: 317.07614pt x 448.92232pt.
+
 
 LaTeX Warning: Reference `sec:probdesc' on page 6 undefined on input line 203.
 
@@ -690,29 +769,43 @@ LaTeX Warning: Reference `sec:probdesc' on page 6 undefined on input line 203.
 LaTeX Font Info:    Font shape `T1/futs/bx/n' in size <12> not available
 (Font)              Font shape `T1/futs/b/n' tried instead on input line 210.
 
-<images/octree.png, id=35, 457.71pt x 169.63374pt>
+<images/octree.png, id=36, 457.71pt x 169.63374pt>
 File: images/octree.png Graphic file (type png)
  <use images/octree.png>
-<images/treedifres.png, id=36, 463.7325pt x 155.58125pt>
+Package pdftex.def Info: images/octree.png used on input line 220.
+(pdftex.def)             Requested size: 362.37569pt x 134.30684pt.
+
+<images/treedifres.png, id=37, 463.7325pt x 155.58125pt>
 File: images/treedifres.png Graphic file (type png)
 
-<use images/treedifres.png> [7 <./images/octree.png (PNG copy)>]
-<images/octofree.png, id=40, 620.3175pt x 224.84pt>
+<use images/treedifres.png>
+Package pdftex.def Info: images/treedifres.png used on input line 228.
+(pdftex.def)             Requested size: 362.37569pt x 121.5784pt.
+ [7 <./images/octree.png>]
+<images/octofree.png, id=41, 620.3175pt x 224.84pt>
 File: images/octofree.png Graphic file (type png)
  <use images/octofree.png>
+Package pdftex.def Info: images/octofree.png used on input line 236.
+(pdftex.def)             Requested size: 362.37569pt x 131.34389pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 241--245
 
  []
 
-<images/diagocto.png, id=41, 915.42pt x 342.27875pt>
+<images/diagocto.png, id=42, 915.42pt x 342.27875pt>
 File: images/diagocto.png Graphic file (type png)
  <use images/diagocto.png>
-[8 <./images/treedifres.png (PNG copy)> <./images/octofree.png (PNG copy)>]
-<images/figoctomap.png, id=45, 767.86874pt x 481.8pt>
+Package pdftex.def Info: images/diagocto.png used on input line 248.
+(pdftex.def)             Requested size: 362.37569pt x 135.4937pt.
+
+[8 <./images/treedifres.png> <./images/octofree.png>]
+<images/figoctomap.png, id=46, 767.86874pt x 481.8pt>
 File: images/figoctomap.png Graphic file (type png)
 
-<use images/figoctomap.png> [9 <./images/diagocto.png (PNG copy)> <./images/fig
-octomap.png (PNG copy)>]
+<use images/figoctomap.png>
+Package pdftex.def Info: images/figoctomap.png used on input line 265.
+(pdftex.def)             Requested size: 271.7835pt x 170.52925pt.
+ [9 <./images/diagocto.png> <./images/figoctomap.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 276--277
 
  []
@@ -722,10 +815,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 278--279
 
  []
 
-<./images/segmentation_result.png, id=49, 953.5625pt x 403.5075pt>
+<./images/segmentation_result.png, id=50, 953.5625pt x 403.5075pt>
 File: ./images/segmentation_result.png Graphic file (type png)
 
 <use ./images/segmentation_result.png>
+Package pdftex.def Info: ./images/segmentation_result.png used on input line 28
+2.
+(pdftex.def)             Requested size: 227.62204pt x 96.32042pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 304--305
 
  []
@@ -745,10 +842,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
-<./images/normal_example.png, id=54, 376.40625pt x 367.3725pt>
+<./images/normal_example.png, id=55, 376.40625pt x 367.3725pt>
 File: ./images/normal_example.png Graphic file (type png)
 
 <use ./images/normal_example.png>
+Package pdftex.def Info: ./images/normal_example.png used on input line 314.
+(pdftex.def)             Requested size: 227.62204pt x 222.16293pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 322--323
 
  []
@@ -763,14 +863,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 326--327
 
  []
 
-<./images/premergingSegmentation.png, id=55, 686.565pt x 368.37625pt>
+<./images/premergingSegmentation.png, id=56, 686.565pt x 368.37625pt>
 File: ./images/premergingSegmentation.png Graphic file (type png)
 
 <use ./images/premergingSegmentation.png>
-<./images/midSegmentation.png, id=56, 567.11874pt x 451.6875pt>
+Package pdftex.def Info: ./images/premergingSegmentation.png used on input line
+ 331.
+(pdftex.def)             Requested size: 227.62204pt x 122.12662pt.
+
+<./images/midSegmentation.png, id=57, 567.11874pt x 451.6875pt>
 File: ./images/midSegmentation.png Graphic file (type png)
 
 <use ./images/midSegmentation.png>
+Package pdftex.def Info: ./images/midSegmentation.png used on input line 339.
+(pdftex.def)             Requested size: 227.62204pt x 181.29208pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 347--348
 
  []
@@ -786,10 +893,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 352--353
 
  []
 
-<./images/finalSegmentation.png, id=67, 927.465pt x 600.2425pt>
+<./images/finalSegmentation.png, id=68, 927.465pt x 600.2425pt>
 File: ./images/finalSegmentation.png Graphic file (type png)
 
 <use ./images/finalSegmentation.png>
+Package pdftex.def Info: ./images/finalSegmentation.png used on input line 356.
+
+(pdftex.def)             Requested size: 227.62204pt x 147.31256pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 366--367
 
  []
@@ -814,53 +925,87 @@ Underfull \hbox (badness 10000) in paragraph at lines 465--466
 
  []
 
-<images/pipeline.png, id=76, 434.62375pt x 292.09125pt>
+<images/pipeline.png, id=77, 434.62375pt x 292.09125pt>
 File: images/pipeline.png Graphic file (type png)
 
-<use images/pipeline.png> [15] [16 <./images/pipeline.png (PNG copy)>]
-<images/rgbTable.png, id=83, 489.83pt x 339.2675pt>
+<use images/pipeline.png>
+Package pdftex.def Info: images/pipeline.png used on input line 478.
+(pdftex.def)             Requested size: 304.23454pt x 204.46246pt.
+ [15] [16 <./images/pipeline.png>]
+<images/rgbTable.png, id=84, 489.83pt x 339.2675pt>
 File: images/rgbTable.png Graphic file (type png)
  <use images/rgbTable.png>
-<images/cloud1.png, id=84, 445.665pt x 379.4175pt>
+Package pdftex.def Info: images/rgbTable.png used on input line 525.
+(pdftex.def)             Requested size: 244.9144pt x 169.63333pt.
+
+<images/cloud1.png, id=85, 445.665pt x 379.4175pt>
 File: images/cloud1.png Graphic file (type png)
  <use images/cloud1.png>
-<images/cloud2.png, id=85, 455.7025pt x 316.18124pt>
+Package pdftex.def Info: images/cloud1.png used on input line 535.
+(pdftex.def)             Requested size: 178.26283pt x 151.7643pt.
+
+<images/cloud2.png, id=86, 455.7025pt x 316.18124pt>
 File: images/cloud2.png Graphic file (type png)
  <use images/cloud2.png>
-<images/cloud3.png, id=86, 433.62pt x 344.28625pt>
+Package pdftex.def Info: images/cloud2.png used on input line 535.
+(pdftex.def)             Requested size: 182.27776pt x 126.47025pt.
+
+<images/cloud3.png, id=87, 433.62pt x 344.28625pt>
 File: images/cloud3.png Graphic file (type png)
  <use images/cloud3.png>
-<images/cloud4.png, id=87, 429.605pt x 310.15875pt>
+Package pdftex.def Info: images/cloud3.png used on input line 537.
+(pdftex.def)             Requested size: 173.44492pt x 137.71205pt.
+
+<images/cloud4.png, id=88, 429.605pt x 310.15875pt>
 File: images/cloud4.png Graphic file (type png)
  <use images/cloud4.png>
-[17 <./images/rgbTable.png (PNG copy)>] [18 <./images/cloud1.png (PNG copy)> <.
-/images/cloud2.png (PNG copy)> <./images/cloud3.png (PNG copy)> <./images/cloud
-4.png (PNG copy)>] <images/graph.png, id=95, 622.325pt x 391.4625pt>
-File: images/graph.png Graphic file (type png)
+Package pdftex.def Info: images/cloud4.png used on input line 537.
+(pdftex.def)             Requested size: 171.83894pt x 124.0613pt.
 
-<use images/graph.png>
-<images/resultChart.png, id=96, 504.88625pt x 274.02374pt>
+[17 <./images/rgbTable.png>] [18 <./images/cloud1.png> <./images/cloud2.png> <.
+/images/cloud3.png> <./images/cloud4.png>]
+<images/graph.png, id=96, 622.325pt x 391.4625pt>
+File: images/graph.png Graphic file (type png)
+ <use images/graph.png>
+Package pdftex.def Info: images/graph.png used on input line 562.
+(pdftex.def)             Requested size: 311.16173pt x 195.73076pt.
+
+<images/resultChart.png, id=97, 504.88625pt x 274.02374pt>
 File: images/resultChart.png Graphic file (type png)
 
 <use images/resultChart.png>
-<images/fail.png, id=97, 526.96875pt x 371.3875pt>
+Package pdftex.def Info: images/resultChart.png used on input line 574.
+(pdftex.def)             Requested size: 353.41795pt x 191.8153pt.
+
+<images/fail.png, id=98, 526.96875pt x 371.3875pt>
 File: images/fail.png Graphic file (type png)
  <use images/fail.png>
-<images/failVer.png, id=98, 364.36125pt x 234.8775pt>
+Package pdftex.def Info: images/fail.png used on input line 585.
+(pdftex.def)             Requested size: 158.09184pt x 111.4171pt.
+
+<images/failVer.png, id=99, 364.36125pt x 234.8775pt>
 File: images/failVer.png Graphic file (type png)
  <use images/failVer.png>
-<images/failHor.png, id=99, 364.36125pt x 257.96375pt>
+Package pdftex.def Info: images/failVer.png used on input line 585.
+(pdftex.def)             Requested size: 109.3092pt x 70.46379pt.
+
+<images/failHor.png, id=100, 364.36125pt x 257.96375pt>
 File: images/failHor.png Graphic file (type png)
 
-<use images/failHor.png> [19 <./images/graph.png (PNG copy)> <./images/resultCh
-art.png (PNG copy)>] [20 <./images/fail.png> <./images/failVer.png> <./images/f
-ailHor.png>]
+<use images/failHor.png>
+Package pdftex.def Info: images/failHor.png used on input line 585.
+(pdftex.def)             Requested size: 109.3092pt x 77.38971pt.
+ [19 <./images/graph.png> <./images/resultChart.png>]
+[20 <./images/fail.png> <./images/failVer.png> <./images/failHor.png>]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 620.
 
- (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
+
+(/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-AED: lastpage setting LastPage [21] (./Lobos_solitarios_Report_final draft.aux)
+
+AED: lastpage setting LastPage
+[21] (./Lobos_solitarios_Report_final draft.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -869,24 +1014,25 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8052 strings out of 493848
- 117883 string characters out of 1152822
- 230753 words of memory out of 3000000
- 10877 multiletter control sequences out of 15000+50000
- 144575 words of font info for 292 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
+ 8840 strings out of 494953
+ 130382 string characters out of 3179653
+ 240003 words of memory out of 3000000
+ 11559 multiletter control sequences out of 15000+200000
+ 144179 words of font info for 289 fonts, out of 3000000 for 9000
+ 62 hyphenation exceptions out of 8191
  39i,15n,43p,1248b,1563s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf-
-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive/fonts/type1/publi
-c/fourier/fourier-ms.pfb></usr/share/texmf-texlive/fonts/type1/adobe/utopia/put
-b8a.pfb></usr/share/texmf-texlive/fonts/type1/adobe/utopia/putr8a.pfb></usr/sha
-re/texmf-texlive/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texmf-texlive/
-fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texmf/fonts/type1/public/cm-su
-per/sftt1000.pfb>
-Output written on "Lobos_solitarios_Report_final draft.pdf" (22 pages, 2487050 
+{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/t
+exmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fonts/type1/public
+/fourier/fourier-ms.pfb></usr/share/texmf-dist/fonts/type1/adobe/utopia/putb8a.
+pfb></usr/share/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texm
+f-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texmf-dist/fonts/type1/a
+dobe/utopia/putri8a.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt
+1000.pfb>
+Output written on "Lobos_solitarios_Report_final draft.pdf" (22 pages, 2179157 
 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
+ 137 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  52867 words of extra memory for PDF output out of 61914 (max. 10000000)
 
