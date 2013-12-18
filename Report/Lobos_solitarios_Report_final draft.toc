@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {6.2}Plane extraction}{16}
 \contentsline {subsection}{\numberline {6.3}Euclidean clustering}{17}
 \contentsline {subsection}{\numberline {6.4}Primitive fitting}{17}
-\contentsline {subsection}{\numberline {6.5}Primitives orientation}{18}
-\contentsline {subsection}{\numberline {6.6}Object recognition using graph algorithm}{18}
+\contentsline {subsection}{\numberline {6.5}Primitives orientation}{17}
+\contentsline {subsection}{\numberline {6.6}Object recognition using graph algorithm}{19}
 \contentsline {section}{\numberline {7}Results and Evaluation}{19}
-\contentsline {section}{\numberline {8}Conclusions and Future Work}{20}
+\contentsline {section}{\numberline {8}Conclusions and Future Work}{21}

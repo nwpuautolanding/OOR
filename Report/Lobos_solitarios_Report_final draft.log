@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.11.3)  18 DEC 2013 22:32
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.11.3)  18 DEC 2013 22:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -931,12 +931,40 @@ File: images/pipeline.png Graphic file (type png)
 <use images/pipeline.png>
 Package pdftex.def Info: images/pipeline.png used on input line 478.
 (pdftex.def)             Requested size: 304.23454pt x 204.46246pt.
- [15] [16 <./images/pipeline.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 484--485
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 506--511
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--511
+
+ []
+
+[16 <./images/pipeline.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 513--517
+
+ []
+
 <images/rgbTable.png, id=84, 489.83pt x 339.2675pt>
 File: images/rgbTable.png Graphic file (type png)
  <use images/rgbTable.png>
 Package pdftex.def Info: images/rgbTable.png used on input line 525.
 (pdftex.def)             Requested size: 244.9144pt x 169.63333pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--530
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 518--530
+
+ []
 
 <images/cloud1.png, id=85, 445.665pt x 379.4175pt>
 File: images/cloud1.png Graphic file (type png)
@@ -962,13 +990,30 @@ File: images/cloud4.png Graphic file (type png)
 Package pdftex.def Info: images/cloud4.png used on input line 537.
 (pdftex.def)             Requested size: 171.83894pt x 124.0613pt.
 
-[17 <./images/rgbTable.png>] [18 <./images/cloud1.png> <./images/cloud2.png> <.
+Underfull \hbox (badness 10000) in paragraph at lines 545--547
+
+ []
+
+[17] [18 <./images/rgbTable.png> <./images/cloud1.png> <./images/cloud2.png> <.
 /images/cloud3.png> <./images/cloud4.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 549--552
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 549--552
+
+ []
+
 <images/graph.png, id=96, 622.325pt x 391.4625pt>
 File: images/graph.png Graphic file (type png)
  <use images/graph.png>
 Package pdftex.def Info: images/graph.png used on input line 562.
 (pdftex.def)             Requested size: 311.16173pt x 195.73076pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 569--571
+
+ []
 
 <images/resultChart.png, id=97, 504.88625pt x 274.02374pt>
 File: images/resultChart.png Graphic file (type png)
@@ -995,17 +1040,22 @@ File: images/failHor.png Graphic file (type png)
 <use images/failHor.png>
 Package pdftex.def Info: images/failHor.png used on input line 585.
 (pdftex.def)             Requested size: 109.3092pt x 77.38971pt.
- [19 <./images/graph.png> <./images/resultChart.png>]
-[20 <./images/fail.png> <./images/failVer.png> <./images/failHor.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 580--593
+
+ []
+
+[19 <./images/graph.png>] [20 <./images/resultChart.png> <./images/fail.png> <.
+/images/failVer.png> <./images/failHor.png>]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 620.
 
 
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
+) [21]
 
 AED: lastpage setting LastPage
-[21] (./Lobos_solitarios_Report_final draft.aux)
+[22] (./Lobos_solitarios_Report_final draft.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1028,11 +1078,11 @@ pfb></usr/share/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texm
 f-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texmf-dist/fonts/type1/a
 dobe/utopia/putri8a.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt
 1000.pfb>
-Output written on "Lobos_solitarios_Report_final draft.pdf" (22 pages, 2179157 
+Output written on "Lobos_solitarios_Report_final draft.pdf" (23 pages, 2178799 
 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 140 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  52867 words of extra memory for PDF output out of 61914 (max. 10000000)
 
