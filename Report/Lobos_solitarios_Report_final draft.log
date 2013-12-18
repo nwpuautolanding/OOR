@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.10.14)  18 DEC 2013 19:08
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.10.14)  18 DEC 2013 19:14
 entering extended mode
  %&-line parsing enabled.
 **"Lobos_solitarios_Report_final draft.tex"
@@ -869,11 +869,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8056 strings out of 493848
- 117935 string characters out of 1152822
+ 8052 strings out of 493848
+ 117883 string characters out of 1152822
  230753 words of memory out of 3000000
  10877 multiletter control sequences out of 15000+50000
- 144971 words of font info for 295 fonts, out of 3000000 for 9000
+ 144575 words of font info for 292 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  39i,15n,43p,1248b,1563s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf-
@@ -883,7 +883,7 @@ b8a.pfb></usr/share/texmf-texlive/fonts/type1/adobe/utopia/putr8a.pfb></usr/sha
 re/texmf-texlive/fonts/type1/adobe/utopia/putr8a.pfb></usr/share/texmf-texlive/
 fonts/type1/adobe/utopia/putri8a.pfb></usr/share/texmf/fonts/type1/public/cm-su
 per/sftt1000.pfb>
-Output written on "Lobos_solitarios_Report_final draft.pdf" (22 pages, 2487032 
+Output written on "Lobos_solitarios_Report_final draft.pdf" (22 pages, 2487050 
 bytes).
 PDF statistics:
  135 PDF objects out of 1000 (max. 8388607)
